@@ -16,28 +16,33 @@ const UserService = {
       ctx.throw(404, 'Invalid id');
     }
     const user = usersRepo.getById(id);
-
     if (user === 'User is not found') {
       ctx.throw(404, 'User is not found');
     } else {
-      ctx.body = UserModel.toResponse(user);
+      ctx.status = 200;
+      ctx.body = UserModel.toResponse(user[0]);
     }
   },
   create: (ctx) => {
     if (valid(ctx.request.body)) {
       const user = usersRepo.createUser(ctx.request.body.name, ctx.request.body.login, ctx.request.body.password);
+      ctx.status = 201;
       ctx.body = UserModel.toResponse(user);
     } else ctx.throw(404, 'Invalid body');
   },
   update: (ctx, id) => {
-    if (valid(ctx.request.body)) {
+    try {
       const user = usersRepo.updateUser(id, ctx.request.body.name, ctx.request.body.login, ctx.request.body.password);
+
       if (user === 'User is not found') {
         ctx.throw(404, 'User is not found');
       } else {
+        ctx.status = 200;
         ctx.body = UserModel.toResponse(user);
       }
-    } else ctx.throw(404, 'Invalid body');
+    } catch (e) {
+      ctx.throw(404, 'Invalid body');
+    }
   },
   delete: (ctx, id) => {
     if (uuid.validate(id)) {
@@ -50,7 +55,6 @@ const UserService = {
     }
   }
 };
-
 
 
 module.exports = { UserService };
