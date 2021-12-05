@@ -6,9 +6,9 @@ class Task {
     this.title = title;
     this.order = order;
     this.description = description;
-    this.user = user.id;
-    this.board = board.id;
-    this.column = column.id;
+    this.userId = user;
+    this.boardId = board;
+    this.columnId = column;
   }
 
   static toResponse(task) {

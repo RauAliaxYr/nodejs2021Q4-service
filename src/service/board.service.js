@@ -20,8 +20,7 @@ const BoardService = {
       ctx.throw(404, 'Board is not found');
     } else {
       ctx.status = 200;
-      const [boarded] = board
-
+      const [boarded] = board;
       ctx.body = boarded;
     }
   },
@@ -48,13 +47,15 @@ const BoardService = {
   },
   delete: (ctx, id) => {
     if (!uuid.validate(id)) {
-      ctx.throw(404, 'Board is not found');
+      ctx.throw(404, 'Invalid id');
     }
     const board = boardsRepo.deleteBoard(id);
     if (board === 'Board is not found') {
       ctx.throw(404, 'Board is not found');
     }
-    ctx.status = 204;
+    if (board === 'Delete is complete') {
+      ctx.status = 204;
+    }
   }
 };
 

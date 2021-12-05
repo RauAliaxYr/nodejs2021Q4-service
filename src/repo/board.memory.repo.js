@@ -1,5 +1,6 @@
 const BoardModel = require('../models/board.model');
 const ColumnModel = require('../models/column.model')
+// const tasksRepo = require("./task.memory.repo")
 
 const boards = [];
 const columnsArr = [];
@@ -42,14 +43,15 @@ const updateBoard = (id, title, columnsArray) => {
   return 'Board is not found';
 };
 const deleteBoard = (id) => {
-  try {
-
-    boards.splice(boards.indexOf(boards.filter(board => board.id === id)), 1);
-    return 'delete is complete';
+    try {
+    const[ find ] =boards.filter(board => board.id === id)
+    boards.splice(boards.indexOf(find), 1);
+    return 'Delete is complete';
   } catch (e) {
     return 'Board is not found';
   }
+
 };
 
 
-module.exports = { getAll, getById, createBoard, updateBoard, deleteBoard };
+module.exports = { getAll, getById, createBoard, updateBoard, deleteBoard,boards };

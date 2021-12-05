@@ -1,4 +1,5 @@
 const UserModel = require('../models/user.model');
+// const taskRepo = require("./task.memory.repo")
 
 const users = [];
 
@@ -36,6 +37,7 @@ const updateUser = (id, name, login, password) => {
 const deleteUser = (id) => {
   try {
     users.splice(users.indexOf(users.filter(user => user.id === id)), 1);
+
     return 'delete is complete';
   } catch (e) {
     return 'user is not found';
@@ -43,4 +45,4 @@ const deleteUser = (id) => {
 };
 
 
-module.exports = { getAll, getById, createUser, updateUser, deleteUser };
+module.exports = { getAll, getById, createUser, updateUser, deleteUser, users };

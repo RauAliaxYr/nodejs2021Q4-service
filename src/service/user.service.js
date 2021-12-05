@@ -1,6 +1,7 @@
 const uuid = require('uuid');
 const usersRepo = require('../repo/user.memory.repository');
 const UserModel = require('../models/user.model');
+// const tasksRepo = require('../repo/task.memory.repo')
 
 function valid(body) {
   return typeof body.name === 'string' && typeof body.login === 'string' && typeof body.password === 'string' && Object.keys(body).length === 3;
@@ -45,14 +46,16 @@ const UserService = {
     }
   },
   delete: (ctx, id) => {
-    if (uuid.validate(id)) {
-      const user = usersRepo.deleteUser(id);
-      if (user === 'User is not found') {
-        ctx.throw(404, 'User is not found');
-      }
-      ctx.status = 204;
-
+    if (!uuid.validate(id)) {
+      ctx.throw(404, 'Invalid id');
     }
+    const user = usersRepo.deleteUser(id);
+    if (user === 'User is not found') {
+      ctx.throw(404, 'User is not found');
+    }
+    // const task = tasksRepo.updateTaskByUser(id)
+
+    ctx.status = 204;
   }
 };
 
