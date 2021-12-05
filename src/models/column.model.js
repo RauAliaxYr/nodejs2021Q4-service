@@ -9,8 +9,8 @@ class Column {
   }
 
   static toResponse(column) {
-    const { id, title } = column;
-    return { id, title };
+    const { id, title, order } = column;
+    return { id, title,order };
   }
 }
 
