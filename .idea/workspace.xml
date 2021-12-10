@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/common/config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.memory.repository.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/routs/user.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="21dyGTNzsiduan5ZruiXuHyXLGD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../node.js course/goldyukol" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\node_modules\prettier" />
+    <property name="ts.external.directory.path" value="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\resources\routs" />
+      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\service" />
+      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\routs" />
+      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\models" />
+      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\repo" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="" />
+      <created>1638285162247</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638285162247</updated>
+      <workItem from="1638285165857" duration="1242000" />
+      <workItem from="1638289993511" duration="9000" />
+      <workItem from="1638452236097" duration="4566000" />
+      <workItem from="1638628034549" duration="10411000" />
+      <workItem from="1638654222580" duration="732000" />
+      <workItem from="1638655177669" duration="2345000" />
+      <workItem from="1638695976254" duration="8335000" />
+      <workItem from="1638709627884" duration="9259000" />
+      <workItem from="1638877587132" duration="1450000" />
+      <workItem from="1638881367222" duration="3681000" />
+      <workItem from="1638886615470" duration="459000" />
+      <workItem from="1638887173553" duration="350000" />
+      <workItem from="1638894960289" duration="586000" />
+      <workItem from="1638955722975" duration="15820000" />
+      <workItem from="1639050999399" duration="10649000" />
+      <workItem from="1639063682429" duration="4330000" />
+      <workItem from="1639092327132" duration="3922000" />
+      <workItem from="1639139938492" duration="6094000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1639055855217">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1639055855217" />
+    <state x="155" y="278" key="FileChooserDialogImpl" timestamp="1639145247558">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="155" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1639145247558" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1638654594825">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1638654594825" />
+  </component>
+</project>
