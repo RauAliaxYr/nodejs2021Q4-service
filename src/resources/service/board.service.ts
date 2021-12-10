@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 
 class BoardService {
   static async getAll(req: Request, res: Response) {
-    console.log('get');
+
     try {
       const boards = await BoardRepo.getAll();
       res.status(200);
@@ -17,7 +17,7 @@ class BoardService {
   }
 
   static async getBoardByID(req: Request, res: Response) {
-    console.log('getById');
+
     try {
       const { boardId } = req.params;
 
@@ -32,7 +32,7 @@ class BoardService {
   }
 
   static async createBoard(req: Request, res: Response) {
-    console.log('Post');
+
     try {
       let requestBody: any = await req.body;
 
@@ -47,7 +47,7 @@ class BoardService {
   }
 
   static async updateBoard(req: Request, res: Response) {
-    console.log('PUt');
+
     try {
       const { boardId } = req.params;
       const boardBody = req.body
@@ -65,9 +65,9 @@ class BoardService {
   }
 
   static async deleteBoard(req: Request, res: Response) {
-    console.log('del');
+
     try {
-      await BoardRepo.deleteBoard(req.params.boardId);
+      await BoardRepo.delBoard(req.params.boardId);
 
       res.status(204)
       res.end();

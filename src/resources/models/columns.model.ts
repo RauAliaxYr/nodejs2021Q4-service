@@ -2,8 +2,8 @@ import * as uuid from "uuid";
 
 class Column {
   id:string
-  title:string
-  order:number|string
+  title:string|null
+  order:number|string|null
 
   constructor(title:string,order:string) {
 

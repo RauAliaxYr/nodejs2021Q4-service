@@ -1,13 +1,14 @@
 import { HttpError } from './http-error';
 import { Response } from 'express';
 
-const throwError = (res: Response, err: HttpError | Error) => {
+const throwError = (res: Response, err:any) => {
   if (err instanceof HttpError) {
     res.status(err.statusCode);
     res.send(err.message);
     res.end();
-  } else if (err instanceof Error) {
-    res.status(500)
+  } else {
+    console.log(err)
+    res.status(404)
     res.send(err.message)
     res.end()
   }

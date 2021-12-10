@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 
 class UsersService {
   static async getAll(req: Request, res: Response) {
-    console.log('get');
+
     try {
       const users = await UsersRepo.getAll();
       res.status(200);
@@ -17,7 +17,7 @@ class UsersService {
   }
 
   static async getUserByID(req: Request, res: Response) {
-    console.log('getById');
+
     try {
       const { userId } = req.params;
 
@@ -32,7 +32,7 @@ class UsersService {
   }
 
   static async createUser(req: Request, res: Response) {
-    console.log('Post');
+
     try {
       let requestBody: any = await req.body;
 
@@ -47,7 +47,7 @@ class UsersService {
   }
 
   static async updateUser(req: Request, res: Response) {
-    console.log('PUt');
+
     try {
       const reqBody: any = await req.body;
 
@@ -64,7 +64,7 @@ class UsersService {
   }
 
   static async deleteUser(req: Request, res: Response) {
-    console.log('del');
+
     try {
       await UsersRepo.deleteUser(req.params.userId);
 

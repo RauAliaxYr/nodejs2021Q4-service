@@ -2,14 +2,14 @@ import * as uuid from 'uuid';
 
 class Task {
   id: string;
-  title: string;
+  title: string|null;
   order: string | number;
-  description: string;
-  userId: string;
-  boardId: string;
-  columnId: string;
+  description: string|null;
+  userId: string|null;
+  boardId: string|null;
+  columnId: string|null;
 
-  constructor(title: string, order: string | number, description: string, userId: string, boardId: string, columnId: string) {
+  constructor(title: string, order: string | number, description: string|null, userId: string|null, boardId: string|null, columnId: string|null) {
 
     this.id = uuid.v4();
     this.title = title;

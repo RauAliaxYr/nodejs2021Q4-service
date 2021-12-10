@@ -2,10 +2,10 @@ import { User } from '../resources/models/user.model';
 import {Task} from "../resources/models/task.model"
 import {Board} from "../resources/models/board.model"
 
-let users: Array<User> = [];
-let boards: Array<Board> = [];
-let tasks: Array<Task> = [];
-let DB ={
+const users: Array<User> = [];
+const boards: Array<Board> = [];
+const tasks: Array<Task> = [];
+const DB ={
   users,
   boards,
   tasks

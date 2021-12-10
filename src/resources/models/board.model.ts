@@ -3,7 +3,7 @@ import {Column} from "./columns.model"
 
 class Board {
   id:string
-  title:string
+  title:string|null
   columns:Array<Column>|null
 
   constructor(title:string,columns:Array<Column>) {

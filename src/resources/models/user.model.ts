@@ -2,9 +2,9 @@ import * as uuid from "uuid";
 
 class User {
   id:string
-  name:string
-  login:string
-  password:string
+  name:string|null
+  login:string|null
+  password:string|null
 
   constructor(name:string,login:string,password:string) {
 

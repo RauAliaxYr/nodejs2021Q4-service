@@ -3,6 +3,7 @@ import { Column } from '../models/columns.model';
 import { DB } from '../../db/db';
 
 import { HttpError } from '../../errors';
+import { Task } from '../models/task.model';
 
 type tryBody ={
   title:string,
@@ -61,22 +62,24 @@ class BoardRepo {
 
     return DB.boards[boardIndex];
   }
-  static deleteBoard(boardId:string):Board {
-    const boardFind:Board|undefined = DB.boards.find((board) => board.id === boardId);
+  static delBoard(boardId:string):Board {
+    const boardFind:Board|undefined = DB.boards.find((board:Board) => board.id === boardId);
+
+
 
     if (!boardFind) throw new HttpError('There are no user with such id!', 404);
 
     DB.boards = DB.boards.filter((board) => board.id !== boardId);
 
-    // const filteredTasks:Array<Task> = [];
-    // DB.tasks.forEach((item) => {
-    //   DB.tasks
-    //     .filter((task) => task.boardId === boardId)
-    //     .forEach((boardT) => {
-    //       if (item.id !== boardT.id) filteredTasks.push(item);
-    //     });
-    // });
-    // DB.tasks = filteredTasks;
+    const filteredTasks:Array<Task> = [];
+    DB.tasks.forEach((item) => {
+      DB.tasks
+        .filter((task) => task.boardId === boardId)
+        .forEach((boardT) => {
+          if (item.id !== boardT.id) filteredTasks.push(item);
+        });
+    });
+    DB.tasks = filteredTasks;
 
     return boardFind;
   }

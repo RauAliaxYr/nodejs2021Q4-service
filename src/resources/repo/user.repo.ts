@@ -2,11 +2,12 @@ import { User } from '../models/user.model';
 import { DB } from '../../db/db';
 
 import { HttpError } from '../../errors';
+import { Task } from '../models/task.model';
 
 type UserToResp = {
   id: string,
-  name: string
-  login: string
+  name: string|null
+  login: string|null
 }
 type tryBody ={
   name:string,
@@ -78,11 +79,11 @@ class UsersRepo {
 
     if (!userFind) throw new HttpError('There are no user with such id!', 404);
 
-    DB.users = DB.users.filter((user) => user.id !== userId);
+    DB.users = DB.users.filter((user:User) => user.id !== userId);
 
-    // DB.tasks.forEach((task, index) => {
-    //   if (task.userId === userId) DB.tasks[index].userId = null; // !
-    // });
+    DB.tasks.forEach((task:Task, index:number) => {
+      if (task.userId === userId) DB.tasks[index].userId = null;
+    });
 
     return User.toResponse(userFind);
   }

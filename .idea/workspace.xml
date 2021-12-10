@@ -23,7 +23,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/errors/throwError.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/throwError.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/models/board.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/board.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/models/columns.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/columns.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/models/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/task.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/service/board.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/board.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/service/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../node.js course/goldyukol" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -94,7 +101,8 @@
       <workItem from="1639050999399" duration="10649000" />
       <workItem from="1639063682429" duration="4330000" />
       <workItem from="1639092327132" duration="3922000" />
-      <workItem from="1639139938492" duration="9637000" />
+      <workItem from="1639139938492" duration="9804000" />
+      <workItem from="1639153364277" duration="9308000" />
     </task>
     <servers />
   </component>
@@ -114,10 +122,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1639055855217">
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1639153399204">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1639055855217" />
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1639153399204" />
     <state x="155" y="278" key="FileChooserDialogImpl" timestamp="1639145247558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
