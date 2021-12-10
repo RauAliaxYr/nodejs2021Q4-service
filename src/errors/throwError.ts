@@ -1,5 +1,5 @@
 import { HttpError } from './http-error';
-import { Request, Response } from 'express';
+import { Response } from 'express';
 
 const throwError = (res: Response, err: HttpError | Error) => {
   if (err instanceof HttpError) {
