@@ -15,7 +15,6 @@ type TaskBody = {
 
 }
 
-
 class TaskRepo {
   static All(): Array<Task> {
 
@@ -39,7 +38,6 @@ class TaskRepo {
       (task) => task.id === taskId
     )[0];
     if (!taskByBoardIdAndTaskId) {
-      console.log('kek')
       throw new HttpError(`There are no tasks on ${board.title} board.`, 404);
     }
     return taskByBoardIdAndTaskId;
@@ -47,7 +45,7 @@ class TaskRepo {
 
   static createTask(newTaskBody: TaskBody, boardId: string): Task {
 
-    let taskData: Task = new Task(
+    const taskData: Task = new Task(
       newTaskBody.title,
       newTaskBody.order,
       newTaskBody.description,
@@ -65,7 +63,7 @@ class TaskRepo {
 
   static updateTask(boardId: string,taskId: string, TaskBody: TaskBody): Task {
 
-    let newTaskParams:Task = {
+    const newTaskParams:Task = {
       id: taskId,
       title: TaskBody.title,
       order: TaskBody.order,

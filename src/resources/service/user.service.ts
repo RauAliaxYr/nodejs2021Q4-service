@@ -1,7 +1,20 @@
 import { UsersRepo } from '../repo/user.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
+import { User } from '../models/user.model';
 
+
+
+type tryBody ={
+  name:string,
+  login:string,
+  password:string
+}
+type UserToResp = {
+  id: string,
+  name: string|null
+  login: string|null
+}
 
 class UsersService {
   static async getAll(req: Request, res: Response) {
@@ -34,9 +47,9 @@ class UsersService {
   static async createUser(req: Request, res: Response) {
 
     try {
-      let requestBody: any = await req.body;
+      const requestBody: User = await req.body;
 
-      let user = await UsersRepo.createUser(requestBody);
+      const user = await UsersRepo.createUser(requestBody);
 
       res.status(201)
       res.send(user);
@@ -49,9 +62,9 @@ class UsersService {
   static async updateUser(req: Request, res: Response) {
 
     try {
-      const reqBody: any = await req.body;
+      const reqBody: tryBody = await req.body;
 
-      const user = await UsersRepo.updateUser(
+      const user: UserToResp = await UsersRepo.updateUser(
         req.params.userId,
         reqBody
       );

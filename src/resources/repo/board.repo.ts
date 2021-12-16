@@ -44,7 +44,7 @@ class BoardRepo {
       throw new HttpError('Please enter you valid changes.', 409);
     }
 
-    let newBoardParams:Board = {id: boardId, title: '', columns:null}
+    const newBoardParams:Board = {id: boardId, title: '', columns:null}
 
     if (body.title) {
       newBoardParams.title = body.title;

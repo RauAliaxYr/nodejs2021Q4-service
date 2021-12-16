@@ -1,8 +1,8 @@
+import express from 'express';
 import userRouter from './resources/routs/user.route'
 import boardsRouter from './resources/routs/board.route'
 import taskRouter from './resources/routs/task.route'
 
-import express from 'express';
 
 const app = express();
 

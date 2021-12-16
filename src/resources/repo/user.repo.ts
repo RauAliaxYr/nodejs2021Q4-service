@@ -53,7 +53,7 @@ class UsersRepo {
       throw new HttpError('Please enter you valid changes.', 409);
     }
 
-    let newUserParams:User = {id: userId, name :'',login:'',password:''}
+    const newUserParams:User = {id: userId, name :'',login:'',password:''}
 
     if (body.name) {
       newUserParams.name = body.name;

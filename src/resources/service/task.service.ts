@@ -1,9 +1,17 @@
 import { TaskRepo } from '../repo/task.repo';
-import { HttpError, throwError } from '../../errors';
+import {  throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { Task } from '../models/task.model';
-import { DB } from '../../db/db';
 
+type TaskBody = {
+  title: string,
+  order: string|number,
+  description: string,
+  userId: string|null,
+  boardId: string|null,
+  columnId: string|null
+
+}
 
 class TaskService {
   static async getAll(req: Request, res: Response) {
@@ -15,7 +23,7 @@ class TaskService {
       res.send(tasks);
       res.end();
     } catch (err) {
-      throwError(res, err );
+      throwError(res, err as Error );
     }
   }
 
@@ -32,7 +40,7 @@ class TaskService {
       res.end();
     } catch (err) {
 
-      throwError(res, err);
+      throwError(res, err as Error);
     }
   }
   static async getTasksByID(req: Request, res: Response) {
@@ -46,7 +54,7 @@ class TaskService {
       res.send(task);
       res.end();
     } catch (err) {
-      throwError(res, err);
+      throwError(res, err as Error);
     }
   }
 
@@ -54,15 +62,15 @@ class TaskService {
 
     try {
       const { boardId } = req.params;
-      let requestBody: any = await req.body;
+      const requestBody: TaskBody  = await req.body;
 
-      let task: Task = await TaskRepo.createTask(requestBody,boardId);
+      const task: Task = await TaskRepo.createTask(requestBody,boardId);
 
       res.status(201)
       res.send(task);
       res.end();
     } catch (err) {
-      throwError(res, err);
+      throwError(res, err as Error);
     }
   }
 
@@ -82,7 +90,7 @@ class TaskService {
       res.send(task);
       res.end();
     } catch (err) {
-      throwError(res, err);
+      throwError(res, err as Error);
     }
   }
 
@@ -98,7 +106,7 @@ class TaskService {
 
     } catch (err) {
 
-      throwError(res, err);
+      throwError(res, err as Error);
     }
   }
 }

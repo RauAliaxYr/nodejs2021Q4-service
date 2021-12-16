@@ -1,6 +1,7 @@
 import { BoardRepo } from '../repo/board.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
+import { Board } from '../models/board.model';
 
 
 class BoardService {
@@ -34,9 +35,9 @@ class BoardService {
   static async createBoard(req: Request, res: Response) {
 
     try {
-      let requestBody: any = await req.body;
+      const requestBody: Board = await req.body;
 
-      let board = await BoardRepo.createBoard(requestBody);
+      const board = await BoardRepo.createBoard(requestBody);
 
       res.status(201)
       res.send(board);

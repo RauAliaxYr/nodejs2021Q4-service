@@ -20,16 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/board.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/board.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/columns.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/columns.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/task.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/throwError.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/throwError.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/service/board.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/board.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/service/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/task.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/service/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/user.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +103,9 @@
       <workItem from="1639063682429" duration="4330000" />
       <workItem from="1639092327132" duration="3922000" />
       <workItem from="1639139938492" duration="9804000" />
-      <workItem from="1639153364277" duration="9308000" />
+      <workItem from="1639153364277" duration="10289000" />
+      <workItem from="1639241387364" duration="268000" />
+      <workItem from="1639649445700" duration="2137000" />
     </task>
     <servers />
   </component>
