@@ -15,11 +15,22 @@ type tryBody ={
   password:string
 }
 
+/**
+ * The main repository API for users.
+ */
 class UsersRepo {
+  /**
+   * return list of all users
+   * @returns list of all users
+   */
   static getAll(): Array<UserToResp> {
     return DB.users.map((user) => User.toResponse(user));
   }
-
+  /**
+   * take user's ID and returns a user by ID
+   * @param userId user's ID
+   * @returns User by ID
+   */
   static getUserById(userId:string): UserToResp {
     const userData: User = DB.users.filter((user:User) => user.id === userId)[0];
 
@@ -28,7 +39,11 @@ class UsersRepo {
     }
     return User.toResponse(userData);
   }
-
+  /**
+   * take user's body and returns a created user
+   * @param newUserBody new user's body
+   * @returns created User
+   */
   static createUser(newUserBody:User):UserToResp {
     if (!newUserBody.name) {
       throw new HttpError('Please enter the name.', 405);
@@ -48,6 +63,12 @@ class UsersRepo {
 
     return User.toResponse(userData);
   }
+  /**
+   * take user's ID and user's body and returns a updated user
+   * @param userId user's ID
+   * @param body new user's body
+   * @returns updated user
+   */
   static updateUser(userId:string, body:tryBody):UserToResp{
     if (!body.name && !body.login && !body.password) {
       throw new HttpError('Please enter you valid changes.', 409);
@@ -74,6 +95,11 @@ class UsersRepo {
 
     return User.toResponse(DB.users[userIndex]);
   }
+  /**
+   * take user's ID.Make for tasks parameter userID = null and returns a deleted user
+   * @param userId user's ID
+   * @returns deleted user
+   */
   static deleteUser(userId:string):UserToResp {
     const userFind:User|undefined = DB.users.find((user) => user.id === userId);
 
@@ -87,7 +113,6 @@ class UsersRepo {
 
     return User.toResponse(userFind);
   }
-
 }
 
 export {

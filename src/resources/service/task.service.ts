@@ -12,8 +12,15 @@ type TaskBody = {
   columnId: string|null
 
 }
-
+/**
+ * The main service for tasks.
+ */
 class TaskService {
+  /**
+   * handles a GET request and make return response with a list of all tasks
+   * @param req GET Request
+   * @param res GET Response
+   */
   static async getAll(req: Request, res: Response) {
 
     try {
@@ -26,7 +33,11 @@ class TaskService {
       throwError(res, err as Error );
     }
   }
-
+  /**
+   * handles a GET request and make return response with a task by id
+   * @param req GET Request
+   * @param res GET Response
+   */
   static async getTaskByID(req: Request, res: Response) {
 
     try {
@@ -43,6 +54,11 @@ class TaskService {
       throwError(res, err as Error);
     }
   }
+  /**
+   * handles a GET request and make return response with a task by boardID
+   * @param req GET Request
+   * @param res GET Response
+   */
   static async getTasksByID(req: Request, res: Response) {
 
     try {
@@ -57,7 +73,11 @@ class TaskService {
       throwError(res, err as Error);
     }
   }
-
+  /**
+   * handles a POST request and make return response with a created task
+   * @param req POST Request
+   * @param res POST Response
+   */
   static async createTask(req: Request, res: Response) {
 
     try {
@@ -73,7 +93,11 @@ class TaskService {
       throwError(res, err as Error);
     }
   }
-
+  /**
+   * handles a PUT request and make return response with a updated task
+   * @param req PUT Request
+   * @param res PUT Response
+   */
   static async updateTask(req: Request, res: Response) {
 
     try {
@@ -93,7 +117,11 @@ class TaskService {
       throwError(res, err as Error);
     }
   }
-
+  /**
+   * handles a DELETE request and make return response with status 204
+   * @param req DELETE Request
+   * @param res DELETE Response
+   */
   static async deleteTask(req: Request, res: Response) {
 
     try {

@@ -1,5 +1,7 @@
 import * as uuid from "uuid";
-
+/**
+ * The main model of column.
+ */
 class Column {
   id:string
   title:string|null

@@ -14,13 +14,23 @@ type TaskBody = {
   columnId: string|null
 
 }
-
+/**
+ * The main repository API for tasks.
+ */
 class TaskRepo {
+  /**
+   * return list of all tasks
+   * @returns list of all tasks
+   */
   static All(): Array<Task> {
 
     return DB.tasks;
   }
-
+  /**
+   * take board's ID and returns all tasks by board ID
+   * @param boardId board's ID
+   * @returns board by ID
+   */
   static getTasksById(boardId: string): Array<Task> {
     const board: Board = BoardRepo.getBoardById(boardId);
     const filteredByBoardIdTasks: Array<Task> = DB.tasks.filter((task: Task) => task.boardId === boardId);
@@ -30,7 +40,12 @@ class TaskRepo {
     }
     return filteredByBoardIdTasks;
   }
-
+  /**
+   * take board's ID and returns all tasks by board ID
+   * @param boardId board ID
+   * @param taskId tasks ID
+   * @returns task by board and task ID
+   */
   static getTaskById(boardId: string, taskId: string): Task {
     const board: Board = BoardRepo.getBoardById(boardId);
     const filteredByBoardIdTasks: Array<Task> = DB.tasks.filter((task: Task) => task.boardId === boardId);
@@ -42,7 +57,12 @@ class TaskRepo {
     }
     return taskByBoardIdAndTaskId;
   }
-
+  /**
+   * take board's ID and task's body and returns a created task
+   * @param newTaskBody new task's body
+   * @param boardId board's ID
+   * @returns created Task
+   */
   static createTask(newTaskBody: TaskBody, boardId: string): Task {
 
     const taskData: Task = new Task(
@@ -60,7 +80,13 @@ class TaskRepo {
 
     return taskData;
   }
-
+  /**
+   * take task's ID, board ID and task's body and returns an updated task
+   * @param boardId board's ID
+   * @param taskId new task's ID
+   * @param TaskBody new task's body
+   * @returns updated task
+   */
   static updateTask(boardId: string,taskId: string, TaskBody: TaskBody): Task {
 
     const newTaskParams:Task = {
@@ -80,7 +106,12 @@ class TaskRepo {
 
     return DB.tasks[indexOfTask];
   }
-
+  /**
+   * take task's ID and returns a deleted task
+   * @param boardId board's ID
+   * @param taskId task's ID
+   * @returns deleted task
+   */
   static delTask(boardId: string,taskId:string): Task {
     const task:Task = this.getTaskById(boardId, taskId);
     DB.tasks = DB.tasks.filter((tsk:Task) => tsk.id !== taskId);

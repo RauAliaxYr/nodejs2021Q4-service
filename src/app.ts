@@ -6,7 +6,6 @@ import taskRouter from './resources/routs/task.route'
 
 const app = express();
 
-
 app.use(express.json())
 app.use(userRouter)
 app.use(boardsRouter)

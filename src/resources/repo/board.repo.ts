@@ -9,21 +9,35 @@ type tryBody ={
   title:string,
   columns:Array<Column>,
 }
-
+/**
+ * The main repository API for boards.
+ */
 class BoardRepo {
+  /**
+   * return list of all boards
+   * @returns list of all boards
+   */
   static getAll(): Array<Board> {
     return DB.boards;
   }
-
-  static getBoardById(userId:string): Board {
-    const boardData: Board = DB.boards.filter((board:Board) => board.id === userId)[0];
+  /**
+   * take board's ID and returns a board ID
+   * @param boardId board's ID
+   * @returns board by ID
+   */
+  static getBoardById(boardId:string): Board {
+    const boardData: Board = DB.boards.filter((board:Board) => board.id === boardId)[0];
 
     if (!boardData) {
       throw new HttpError('There is no user with such id!', 404);
     }
     return boardData;
   }
-
+  /**
+   * take board body and returns a created board
+   * @param newBoardBody new board's body
+   * @returns task by board and task ID
+   */
   static createBoard(newBoardBody:Board):Board {
     if (!newBoardBody.title) {
       throw new HttpError('Please enter the name.', 405);
@@ -39,6 +53,12 @@ class BoardRepo {
 
     return boardData;
   }
+  /**
+   * take board's ID and board's body and returns an updated board
+   * @param boardId board's ID
+   * @param body new board's body
+   * @returns updated task
+   */
   static updateBoard(boardId:string, body:tryBody):Board{
     if (!body.title && !body.columns ){
       throw new HttpError('Please enter you valid changes.', 409);
@@ -62,6 +82,11 @@ class BoardRepo {
 
     return DB.boards[boardIndex];
   }
+  /**
+   * Take board ID. Delete tasks by board ID and return a deleted board
+   * @param boardId board's ID
+   * @returns deleted board
+   */
   static delBoard(boardId:string):Board {
     const boardFind:Board|undefined = DB.boards.find((board:Board) => board.id === boardId);
 

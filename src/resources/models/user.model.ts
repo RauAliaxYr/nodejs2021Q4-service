@@ -1,5 +1,7 @@
 import * as uuid from "uuid";
-
+/**
+ * The main model of user.
+ */
 class User {
   id:string
   name:string|null
