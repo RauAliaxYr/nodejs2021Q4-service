@@ -2,6 +2,7 @@ import { TaskRepo } from '../repo/task.repo';
 import {  throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { Task } from '../models/task.model';
+import { CustomLogger } from '../../logger/logger';
 
 type TaskBody = {
   title: string,
@@ -28,9 +29,10 @@ class TaskService {
 
       res.status(200);
       res.send(tasks);
+      CustomLogger.createLog(req, 200);
       res.end();
     } catch (err) {
-      throwError(res, err as Error );
+      throwError(req,res, err as Error );
     }
   }
   /**
@@ -48,10 +50,11 @@ class TaskService {
 
       res.status(200)
       res.send(task);
+      CustomLogger.createLog(req, 200);
       res.end();
     } catch (err) {
 
-      throwError(res, err as Error);
+      throwError(req,res, err as Error);
     }
   }
   /**
@@ -68,9 +71,10 @@ class TaskService {
 
       res.status(200)
       res.send(task);
+      CustomLogger.createLog(req, 200);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req,res, err as Error);
     }
   }
   /**
@@ -88,9 +92,10 @@ class TaskService {
 
       res.status(201)
       res.send(task);
+      CustomLogger.createLog(req, 201);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req,res, err as Error);
     }
   }
   /**
@@ -112,9 +117,10 @@ class TaskService {
       );
       res.status(200)
       res.send(task);
+      CustomLogger.createLog(req, 200);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req,res, err as Error);
     }
   }
   /**
@@ -129,12 +135,13 @@ class TaskService {
       await TaskRepo.delTask(req.params.boardId, req.params.taskId);
 
       res.status(204)
+      CustomLogger.createLog(req, 204);
 
       res.end();
 
     } catch (err) {
 
-      throwError(res, err as Error);
+      throwError(req, res, err as Error);
     }
   }
 }

@@ -2,19 +2,19 @@ import { UsersRepo } from '../repo/user.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { User } from '../models/user.model';
+import { CustomLogger } from '../../logger/logger';
 
 
-
-type tryBody ={
-  name:string,
-  login:string,
-  password:string
+type tryBody = {
+  name: string,
+  login: string,
+  password: string
 }
 
 type UserToResp = {
   id: string,
-  name: string|null
-  login: string|null
+  name: string | null
+  login: string | null
 }
 
 /**
@@ -32,11 +32,13 @@ class UsersService {
       const users = await UsersRepo.getAll();
       res.status(200);
       res.send(users);
+      CustomLogger.createLog(req, 200);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req, res, err as Error);
     }
   }
+
   /**
    * handles a GET request and make return response with a user by id
    * @param req GET Request
@@ -49,13 +51,15 @@ class UsersService {
 
       const user = await UsersRepo.getUserById(userId);
 
-      res.status(200)
+      res.status(200);
       res.send(user);
+      CustomLogger.createLog(req, 200);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req, res, err as Error);
     }
   }
+
   /**
    * handles a POST request and make return response with a created user
    * @param req POST Request
@@ -68,13 +72,15 @@ class UsersService {
 
       const user = await UsersRepo.createUser(requestBody);
 
-      res.status(201)
+      res.status(201);
       res.send(user);
+      CustomLogger.createLog(req, 201);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req, res, err as Error);
     }
   }
+
   /**
    * handles a PUT request and make return response with a updated user
    * @param req PUT Request
@@ -89,13 +95,15 @@ class UsersService {
         req.params.userId,
         reqBody
       );
-      res.status(200)
+      res.status(200);
       res.send(user);
+      CustomLogger.createLog(req, 200);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req, res, err as Error);
     }
   }
+
   /**
    * handles a DELETE request and make return response with status 204
    * @param req DELETE Request
@@ -106,10 +114,11 @@ class UsersService {
     try {
       await UsersRepo.deleteUser(req.params.userId);
 
-      res.status(204)
+      res.status(204);
+      CustomLogger.createLog(req, 204);
       res.end();
     } catch (err) {
-      throwError(res, err as Error);
+      throwError(req, res, err as Error);
     }
   }
 }

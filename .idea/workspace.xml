@@ -20,17 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/board.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/board.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/columns.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/columns.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/task.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/throwError.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/throwError.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/service/board.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/board.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/service/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/task.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/service/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/user.service.ts" afterDir="false" />
@@ -108,7 +101,9 @@
       <workItem from="1639153364277" duration="10289000" />
       <workItem from="1639241387364" duration="268000" />
       <workItem from="1639649445700" duration="2983000" />
-      <workItem from="1639740415680" duration="4457000" />
+      <workItem from="1639740415680" duration="5670000" />
+      <workItem from="1640257215283" duration="1371000" />
+      <workItem from="1640343121858" duration="5083000" />
     </task>
     <servers />
   </component>
@@ -128,10 +123,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1639153399204">
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1640259849042">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1639153399204" />
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1640259849042" />
     <state x="155" y="278" key="FileChooserDialogImpl" timestamp="1639145247558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

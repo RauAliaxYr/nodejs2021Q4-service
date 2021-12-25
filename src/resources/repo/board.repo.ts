@@ -29,7 +29,7 @@ class BoardRepo {
     const boardData: Board = DB.boards.filter((board:Board) => board.id === boardId)[0];
 
     if (!boardData) {
-      throw new HttpError('There is no user with such id!', 404);
+      throw new HttpError('There is no board with such id!', 404);
     }
     return boardData;
   }
@@ -75,7 +75,7 @@ class BoardRepo {
 
     const boardData:Board|undefined = DB.boards.find((board:Board) => board.id === newBoardParams.id); // !
 
-    if (!boardData) throw new HttpError('There are no user with such id!', 404);
+    if (!boardData) throw new HttpError('There are no board with such id!', 404);
 
     const boardIndex:number = DB.boards.indexOf(boardData);
     DB.boards[boardIndex] = { ...boardData, ...newBoardParams };
@@ -92,7 +92,7 @@ class BoardRepo {
 
 
 
-    if (!boardFind) throw new HttpError('There are no user with such id!', 404);
+    if (!boardFind) throw new HttpError('There are no board with such id!', 404);
 
     DB.boards = DB.boards.filter((board) => board.id !== boardId);
 
