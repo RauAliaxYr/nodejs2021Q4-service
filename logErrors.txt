@@ -1,0 +1,7 @@
+ERROR [| URL : /boards/134e8fd3-ff89-4dd9-8841-6428f850dd7b | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
+ERROR [| URL : /boards/91dc6c40-0fc5-4186-a4a0-00ef2e24e170/tasks/82455a5e-525e-4633-a628-9a9d640517fe | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
+ERROR [| URL : /boards/91dc6c40-0fc5-4186-a4a0-00ef2e24e170/tasks/0e19f45f-1a6e-4d45-a5f8-d5611c5d9cb1 | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
+ERROR [| URL : /boards/91dc6c40-0fc5-4186-a4a0-00ef2e24e170/tasks/bdb705bf-756f-4f63-bd54-5f267cc01d9a | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
+ERROR [| URL : /boards/91dc6c40-0fc5-4186-a4a0-00ef2e24e170/tasks/d2132e0f-79a6-449f-997e-ee8a7fdbc827 | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
+ERROR [| URL : /boards/91dc6c40-0fc5-4186-a4a0-00ef2e24e170/tasks/057f19f4-38c2-4eba-b92f-43144b3aa229 | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
+ERROR [| URL : /boards/e5447173-2046-4231-a1cb-7779e8d0d038/tasks/7e3592f8-12bb-4c10-ba88-8e14264a6926 | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There are no tasks on Autotest board board. ] 

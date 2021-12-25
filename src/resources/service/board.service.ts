@@ -19,7 +19,7 @@ class BoardService {
       const boards = await BoardRepo.getAll();
       res.status(200);
       res.send(boards);
-      CustomLogger.createLog(req, 200);
+      CustomLogger.infoLog(req, 200);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
@@ -39,7 +39,7 @@ class BoardService {
 
       res.status(200)
       res.send(board);
-      CustomLogger.createLog(req, 200);
+      CustomLogger.infoLog(req, 200);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
@@ -59,7 +59,7 @@ class BoardService {
 
       res.status(201)
       res.send(board);
-      CustomLogger.createLog(req, 201);
+      CustomLogger.infoLog(req, 201);
       res.end();
     } catch (err) {
       throwError(req,res, err as Error);
@@ -82,7 +82,7 @@ class BoardService {
       );
       res.status(200)
       res.send(board);
-      CustomLogger.createLog(req, 200);
+      CustomLogger.infoLog(req, 200);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
@@ -99,7 +99,7 @@ class BoardService {
       await BoardRepo.delBoard(req.params.boardId);
 
       res.status(204)
-      CustomLogger.createLog(req, 204);
+      CustomLogger.infoLog(req, 204);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);

@@ -1,4 +1,4 @@
 import {HttpError} from './http-error'
-import {throwError} from './throwError'
+import {throwError, throwUncaughtException} from './throwError'
 
-export {HttpError,throwError}
+export {HttpError,throwError,throwUncaughtException}

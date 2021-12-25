@@ -32,7 +32,7 @@ class UsersService {
       const users = await UsersRepo.getAll();
       res.status(200);
       res.send(users);
-      CustomLogger.createLog(req, 200);
+      CustomLogger.infoLog(req, 200);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
@@ -53,7 +53,7 @@ class UsersService {
 
       res.status(200);
       res.send(user);
-      CustomLogger.createLog(req, 200);
+      CustomLogger.infoLog(req, 200);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
@@ -74,7 +74,7 @@ class UsersService {
 
       res.status(201);
       res.send(user);
-      CustomLogger.createLog(req, 201);
+      CustomLogger.infoLog(req, 201);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
@@ -97,7 +97,7 @@ class UsersService {
       );
       res.status(200);
       res.send(user);
-      CustomLogger.createLog(req, 200);
+      CustomLogger.infoLog(req, 200);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
@@ -115,7 +115,7 @@ class UsersService {
       await UsersRepo.deleteUser(req.params.userId);
 
       res.status(204);
-      CustomLogger.createLog(req, 204);
+      CustomLogger.infoLog(req, 204);
       res.end();
     } catch (err) {
       throwError(req, res, err as Error);
