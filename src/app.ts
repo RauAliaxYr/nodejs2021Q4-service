@@ -11,5 +11,12 @@ const app = express();
   app.use(boardsRouter);
   app.use(taskRouter);
 
+process
+  .on('unhandledRejection', (err, promise) => {
+    throwUncaughtException(err as Error);
+  })
+  .on('uncaughtException', err => {
+    throwUncaughtException(err);
+  })
 
 export { app };
