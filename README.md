@@ -70,3 +70,12 @@ npm run lint
 Press <kbd>F5</kbd> to debug.
 
 For more information, visit: https://code.visualstudio.com/docs/editor/debugging
+
+### Log status
+If you're want another log status, change parameter ``LOG_STATUS`` into ``.env`` (default 2)
+```
+0: error (ошибка)
+1: warn (предупреждение)
+2: info (информация)
+```
+All logs handled into the ``log.txt`` file, Errors logs handled into the ``logErrors.txt`` file
