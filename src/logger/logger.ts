@@ -16,13 +16,17 @@ type ErrorType = {
   error: Error
 }
 
-let logStatus: string | undefined = LOG_STATUS;
+const logStatus: string | undefined = LOG_STATUS;
 
 export class CustomLogger {
-
+  /**
+   * Make custom log by info
+   * @param req Request
+   * @param statusCode
+   */
   static infoLog(req: Request, statusCode: number) {
 
-    let logBody: LoggerType = { url: '', query: '', body: '', statusCode: 0 };
+    const logBody: LoggerType = { url: '', query: '', body: '', statusCode: 0 };
 
     logBody.url = req.url;
     logBody.query = req.query;
@@ -35,12 +39,15 @@ export class CustomLogger {
 
     if (logStatus === '2') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(logBody), { flag: 'a' }, err => {
-      });
+      console.error('Logger error')});
     }
 
 
   }
-
+  /**
+   * Make custom log by warning
+   * @param msg warning message
+   */
   static warnLog(msg: string) {
     function toLog(logMsg: string) {
       return `WARNING [Description: ${logMsg}] \n`;
@@ -48,10 +55,15 @@ export class CustomLogger {
 
     if (logStatus === '1' || logStatus === '2') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(msg), { flag: 'a' }, err => {
-      });
+        console.error('Logger error')});
     }
   }
-
+  /**
+   * Make custom log by Error
+   * @param req Request
+   * @param statusCode
+   * @param err Error
+   */
   static errorLog(req: Request, statusCode: number, err: Error) {
 
     const errorBody: ErrorType = { url: req.url, statusCode: statusCode, error: err };
@@ -62,22 +74,25 @@ export class CustomLogger {
 
     if (logStatus === '1' || logStatus === '2' || logStatus === '0') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(errorBody), { flag: 'a' }, err => {
-      });
+        console.error('Logger error')});
       fs.writeFile(process.cwd() + '/logErrors.txt', toLog(errorBody), { flag: 'a' }, err => {
-      });
+        console.error('Logger error')});
     }
   }
-
+  /**
+   * Make custom log by UncaughtError
+   * @param err Error
+   */
   static uncaughtExceptionLog(err: Error) {
     function toLog(errToLog: Error) {
-      return `ERROR [| Error Msg : ${err} ] \n`;
+      return `ERROR [| Error Msg : ${errToLog} ] \n`;
     }
 
     if (logStatus === '1' || logStatus === '2' || logStatus === '0') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(err), { flag: 'a' }, err => {
-      });
+        console.error('Logger error')});
       fs.writeFile(process.cwd() + '/logErrors.txt', toLog(err), { flag: 'a' }, err => {
-      });
+        console.error('Logger error')});
     }
   }
 
