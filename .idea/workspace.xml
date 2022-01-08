@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/errors/throwError.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/throwError.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logger/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/logger/logger.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +57,9 @@
     <property name="ts.external.directory.path" value="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\resources\routs" />
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\service" />
@@ -105,7 +107,9 @@
       <workItem from="1640513965581" duration="2129000" />
       <workItem from="1640524745059" duration="957000" />
       <workItem from="1641380559232" duration="824000" />
-      <workItem from="1641559438507" duration="2285000" />
+      <workItem from="1641559438507" duration="4240000" />
+      <workItem from="1641646041513" duration="527000" />
+      <workItem from="1641646586916" duration="1605000" />
     </task>
     <servers />
   </component>
@@ -125,10 +129,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1640259849042">
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1641562747338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1640259849042" />
+    <state x="241" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1641562747338" />
     <state x="155" y="278" key="FileChooserDialogImpl" timestamp="1639145247558">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
