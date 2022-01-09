@@ -20,8 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logErrors.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logger/logger.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/logger/logger.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,15 +65,15 @@
     <property name="ts.external.directory.path" value="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\resources\routs" />
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\service" />
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\routs" />
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\models" />
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\repo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -109,7 +117,8 @@
       <workItem from="1641380559232" duration="824000" />
       <workItem from="1641559438507" duration="4240000" />
       <workItem from="1641646041513" duration="527000" />
-      <workItem from="1641646586916" duration="1605000" />
+      <workItem from="1641646586916" duration="3975000" />
+      <workItem from="1641731851495" duration="5823000" />
     </task>
     <servers />
   </component>
@@ -141,5 +150,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1638654594825" />
+    <state x="372" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1641737830839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="372" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1641737830839" />
   </component>
 </project>

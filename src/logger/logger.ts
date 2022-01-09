@@ -39,7 +39,7 @@ export class CustomLogger {
 
     if (logStatus === '2') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(logBody), { flag: 'a' }, err => {
-      console.error('Logger error')});
+      });
     }
 
 
@@ -55,7 +55,7 @@ export class CustomLogger {
 
     if (logStatus === '1' || logStatus === '2') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(msg), { flag: 'a' }, err => {
-        console.error('Logger error')});
+        });
     }
   }
   /**
@@ -74,9 +74,9 @@ export class CustomLogger {
 
     if (logStatus === '1' || logStatus === '2' || logStatus === '0') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(errorBody), { flag: 'a' }, err => {
-        console.error('Logger error')});
+       });
       fs.writeFile(process.cwd() + '/logErrors.txt', toLog(errorBody), { flag: 'a' }, err => {
-        console.error('Logger error')});
+        });
     }
   }
   /**
@@ -90,9 +90,9 @@ export class CustomLogger {
 
     if (logStatus === '1' || logStatus === '2' || logStatus === '0') {
       fs.writeFile(process.cwd() + '/log.txt', toLog(err), { flag: 'a' }, err => {
-        console.error('Logger error')});
+        });
       fs.writeFile(process.cwd() + '/logErrors.txt', toLog(err), { flag: 'a' }, err => {
-        console.error('Logger error')});
+        });
     }
   }
 

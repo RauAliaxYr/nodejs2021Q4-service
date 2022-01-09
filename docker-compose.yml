@@ -1,8 +1,48 @@
-version: '3.0'
+version: '3.7'
+
+volumes:
+  postgresDB:
+  logs:
 
 services:
-  my-api:
-    image: my-http
-    build: .
+  ts-node-docker:
+    networks:
+      - my_network
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    volumes:
+      - logs:/home/node/app/log.txt
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    container_name: ts-node-docker
+    environment:
+      PORT: ${PORT}
+    expose:
+      - ${PORT}
     ports:
-      - "3000:3000"
+      - ${PORT}:${PORT}
+    command: npm run dev
+    links:
+      - db
+    restart: always
+  db:
+    networks:
+      - my_network
+    image: postgres:9.5.13-alpine
+    volumes:
+      - postgresDB:/home/node/app/var/lib/postgresql
+    ports:
+      - ${DB_PORTS}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    restart: always
+
+networks:
+  my_network:
+    driver: bridge
+  bridge:
+    external: true

@@ -1,11 +1,15 @@
-FROM node:16-alpine
+FROM node:16-alpine as base
 
-EXPOSE 3000
+WORKDIR /home/node/app
 
-WORKDIR /app
+COPY package*.json ./
+
+RUN npm i
 
 COPY . .
 
-RUN npm install
+FROM base as production
 
-CMD ["ts-node","src/server.ts"]
+ENV NODE_PATH=./build
+
+RUN npm run build
