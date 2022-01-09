@@ -70,3 +70,26 @@ npm run lint
 Press <kbd>F5</kbd> to debug.
 
 For more information, visit: https://code.visualstudio.com/docs/editor/debugging
+
+### Log status
+If you're want another log status, change parameter ``LOG_STATUS`` into ``.env`` (default 2)
+```
+0: error (ошибка)
+1: warn (предупреждение)
+2: info (информация)
+```
+All logs handled into the ``log.txt`` file, Errors logs handled into the ``logErrors.txt`` file
+
+### How to start with Docker
+First of all you need to install docker ``https://www.docker.com`` 
+
+If you want to use custom port, into the file ``.env`` you need to change parameter PORT(default 4000).
+After that you need to use the command to start:
+```
+docker-compose up
+``` 
+if you want to start application in the background, use the command:
+```
+docker-compose up -d
+```
+
