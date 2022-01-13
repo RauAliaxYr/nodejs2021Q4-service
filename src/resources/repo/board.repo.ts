@@ -1,5 +1,5 @@
 import { Board } from '../models/board.model';
-import { Column } from '../models/columns.model';
+import { ColumnToBoard } from '../models/columns.model';
 import { DB } from '../../db/db';
 
 import { HttpError } from '../../errors';
@@ -7,7 +7,7 @@ import { Task } from '../models/task.model';
 
 type tryBody ={
   title:string,
-  columns:Array<Column>,
+  columns:Array<ColumnToBoard>,
 }
 /**
  * The main repository API for boards.
