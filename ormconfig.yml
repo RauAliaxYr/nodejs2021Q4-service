@@ -1,0 +1,12 @@
+default: # default connection
+  type: ${TYPEORM_CONNECTION}
+  host: ${TYPEORM_HOST}
+  port: ${TYPEORM_PORT}
+  username: ${TYPEORM_USERNAME}
+  password: ${TYPEORM_PASSWORD}
+  database: ${TYPEORM_DATABASE}
+  logging: ${TYPEORM_LOGGING}
+  entities: ${TYPEORM_ENTITIES}
+  subscribers: ${TYPEORM_MIGRATIONS}
+  migrations: ${TYPEORM_SUBSCRIBERS}
+  synchronize: ${TYPEORM_SYNCHRONIZE}
