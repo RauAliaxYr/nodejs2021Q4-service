@@ -7,7 +7,7 @@ import { throwUncaughtException } from './errors';
 
 
 const app = express();
-createConnection().then(connection => {
+createConnection().then(async connection => {
 
   app.use(express.json());
   app.use(userRouter);

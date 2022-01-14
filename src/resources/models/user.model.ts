@@ -15,7 +15,7 @@ class User {
   @Column("string")
   password:string|null
   @OneToMany(type => Task,task => task.columnId)
-  tasks:Task[]
+  tasks:Task[]|null
 
   constructor(name:string,login:string,password:string) {
 

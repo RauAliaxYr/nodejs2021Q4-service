@@ -13,17 +13,17 @@ class Task {
   @Column("text")
   title: string|null;
   @Column("text")
-  order: string | number;
+  order: string;
   @Column("text")
   description: string|null;
   @ManyToOne(type => User, user => user.tasks)
-  userId: User;
+  userId: User|null;
   @ManyToOne(type => Board, board => board.tasks)
   boardId: Board;
   @ManyToOne(type => ColumnToBoard, column => column.tasks)
   columnId: ColumnToBoard;
 
-  constructor(title: string, order: string | number, description: string|null, userId: User, boardId: Board, columnId: ColumnToBoard) {
+  constructor(title: string, order: string, description: string|null, userId: User, boardId: Board, columnId: ColumnToBoard) {
 
     this.id = uuid.v4();
     this.title = title;
