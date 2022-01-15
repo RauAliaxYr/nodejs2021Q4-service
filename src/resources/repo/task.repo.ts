@@ -1,85 +1,110 @@
 import { Task } from '../models/task.model';
 import { Board } from '../models/board.model';
-import { BoardRepo } from './board.repo';
-import { DB } from '../../db/db';
-
-import { HttpError } from '../../errors';
+import { getManager, Repository } from 'typeorm';
+import { User } from '../models/user.model';
+import { ColumnToBoard } from '../models/columns.model';
 
 type TaskBody = {
   title: string,
-  order: string|number,
+  order: string,
   description: string,
-  userId: string|null,
-  boardId: string|null,
-  columnId: string|null
+  userId: User,
+  boardId: Board,
+  columnId: ColumnToBoard
 
 }
+
 /**
  * The main repository API for tasks.
  */
 class TaskRepo {
+
+  static TaskRepo = getManager().getRepository(Task);
+
   /**
    * return list of all tasks
    * @returns list of all tasks
    */
-  static All(): Array<Task> {
+  static async All(): Promise<Repository<Task>> {
 
-    return DB.tasks;
+    return this.TaskRepo;
   }
+
   /**
    * take board's ID and returns all tasks by board ID
    * @param boardId board's ID
    * @returns board by ID
    */
-  static getTasksById(boardId: string): Array<Task> {
-    const board: Board = BoardRepo.getBoardById(boardId);
-    const filteredByBoardIdTasks: Array<Task> = DB.tasks.filter((task: Task) => task.boardId === boardId);
-
-    if (filteredByBoardIdTasks.length === 0) {
-      throw new HttpError(`There are no tasks on ${board.title} board.`, 404);
+  static async getTasksById(boardId: string): Promise<Array<Task>> {
+    let tasks = [];
+    try {
+      tasks = await this.TaskRepo
+        .createQueryBuilder('task')
+        .where('task.boardId.id = :id', { id: boardId })
+        .getMany();
+    } catch (e) {
+      throw new Error(`There are no tasks on board.`);
     }
-    return filteredByBoardIdTasks;
+    return tasks;
   }
+
   /**
    * take board's ID and returns all tasks by board ID
    * @param boardId board ID
    * @param taskId tasks ID
    * @returns task by board and task ID
    */
-  static getTaskById(boardId: string, taskId: string): Task {
-    const board: Board = BoardRepo.getBoardById(boardId);
-    const filteredByBoardIdTasks: Array<Task> = DB.tasks.filter((task: Task) => task.boardId === boardId);
-    const taskByBoardIdAndTaskId: Task = filteredByBoardIdTasks.filter(
-      (task) => task.id === taskId
-    )[0];
-    if (!taskByBoardIdAndTaskId) {
-      throw new HttpError(`There are no tasks on ${board.title} board.`, 404);
+  static async getTaskById(boardId: string, taskId: string): Promise<Task> {
+    let task;
+    try {
+      task = await this.TaskRepo
+        .createQueryBuilder('task')
+        .where('task.id = :id', { id: taskId })
+        .getOne();
+    } catch (e) {
+      throw new Error(`Db error (get task by id)`);
     }
-    return taskByBoardIdAndTaskId;
+    if (typeof task === 'undefined') {
+      throw new Error(`There are no tasks with such id.`);
+    } else return task;
+
   }
+
   /**
    * take board's ID and task's body and returns a created task
    * @param newTaskBody new task's body
    * @param boardId board's ID
    * @returns created Task
    */
-  static createTask(newTaskBody: TaskBody, boardId: string): Task {
+  static async createTask(newTaskBody: TaskBody, boardId: string): Promise<Task> {
 
-    const taskData: Task = new Task(
-      newTaskBody.title,
-      newTaskBody.order,
-      newTaskBody.description,
-      newTaskBody.userId,
-      boardId,
-      newTaskBody.columnId
-    );
+    let boardById = await getManager().getRepository(Board).createQueryBuilder('board').where('board.id = :id', { id: boardId }).getOne();
+    let taskData: Task;
 
-    taskData.boardId = boardId
+    if (typeof boardById !== 'undefined') {
+      taskData = new Task(
+        newTaskBody.title,
+        newTaskBody.order,
+        newTaskBody.description,
+        newTaskBody.userId,
+        boardById,
+        newTaskBody.columnId
+      );
 
-    DB.tasks.push(taskData);
-
-    return taskData;
+      try {
+        await this.TaskRepo
+          .createQueryBuilder('task')
+          .insert()
+          .into(Task)
+          .values(taskData)
+          .execute();
+      } catch (e) {
+        throw new Error('Error into db (task creation)');
+      }
+      return taskData;
+    }else throw new Error(`There are no board with such id.`);
   }
+
   /**
    * take task's ID, board ID and task's body and returns an updated task
    * @param boardId board's ID
@@ -87,38 +112,66 @@ class TaskRepo {
    * @param TaskBody new task's body
    * @returns updated task
    */
-  static updateTask(boardId: string,taskId: string, TaskBody: TaskBody): Task {
+  static async updateTask(boardId: string, taskId: string, TaskBody: TaskBody): Promise<Task> {
 
-    const newTaskParams:Task = {
-      id: taskId,
-      title: TaskBody.title,
-      order: TaskBody.order,
-      description: TaskBody.description,
-      userId: TaskBody.userId,
-      boardId: TaskBody.boardId,
-      columnId: TaskBody.columnId
-    };
-    const task: Task = this.getTaskById(boardId, taskId);
-    const tasksInStr:string[] = DB.tasks.map((tsk) => JSON.stringify(tsk));
-    const indexOfTask:number = tasksInStr.indexOf(JSON.stringify(task));
+    try {
+      await this.TaskRepo.createQueryBuilder()
+        .update()
+        .set({id: taskId,
+          title: TaskBody.title,
+          order: TaskBody.order,
+          description: TaskBody.description,
+          userId: TaskBody.userId,
+          boardId: TaskBody.boardId,
+          columnId: TaskBody.columnId})
+        .where('task.id = :id', { id: taskId })
+        .returning('*')
+        .execute()
+    }
+    catch (e) {
+      throw new Error('Error into db (user updation)');
+    }
 
-    DB.tasks[indexOfTask] = { ...task, ...newTaskParams };
-
-    return DB.tasks[indexOfTask];
+    let updatedTask: Task|undefined = await this.TaskRepo
+      .createQueryBuilder('task')
+      .where('task.id = :id', { id: taskId })
+      .getOne();
+    if (typeof updatedTask === 'undefined'){
+      throw new Error(`There are no task with such id.`)
+    }
+    else return updatedTask;
   }
+
   /**
    * take task's ID and returns a deleted task
    * @param boardId board's ID
    * @param taskId task's ID
    * @returns deleted task
    */
-  static delTask(boardId: string,taskId:string): Task {
-    const task:Task = this.getTaskById(boardId, taskId);
-    DB.tasks = DB.tasks.filter((tsk:Task) => tsk.id !== taskId);
+  static async delTask(boardId: string, taskId: string): Promise<Task> {
+    let task: Task|undefined = await this.TaskRepo
+      .createQueryBuilder('task')
+      .where('task.id = :id', { id: taskId })
+      .getOne();
 
+    if (typeof task === 'undefined'){
+      throw new Error(`There are no task with such id.`)
+    }else try {
+
+      await this.TaskRepo
+        .createQueryBuilder()
+        .delete()
+        .from(Task)
+        .where('task.id = :id', { id: taskId })
+        .execute()
+    }
+    catch(e){
+      throw new Error('Error into db (task deletion)')
+    }
     return task;
   }
 }
+
 export {
   TaskRepo
 };

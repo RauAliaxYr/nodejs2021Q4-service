@@ -1,9 +1,8 @@
 import { User } from '../models/user.model';
-import { DB } from '../../db/db';
 
 import { HttpError } from '../../errors';
 import { Task } from '../models/task.model';
-import { getManager, UpdateResult } from 'typeorm';
+import { getManager } from 'typeorm';
 import { Repository } from 'typeorm/repository/Repository';
 
 type UserToResp = {
@@ -96,7 +95,7 @@ class UsersRepo {
 
     try {
       await this.UserRepo
-        .createQueryBuilder()
+        .createQueryBuilder('user')
         .update(User)
         .set({ name: body.name, login: body.login, password: body.password })
         .where('user.id = :id', { id: userId })
@@ -107,7 +106,7 @@ class UsersRepo {
     }
 
     const UserToResponse: User | undefined = await this.UserRepo
-      .createQueryBuilder()
+      .createQueryBuilder('user')
       .where('user.id = :id', { id: userId })
       .getOne();
 
@@ -123,14 +122,14 @@ class UsersRepo {
    */
   static async deleteUser(userId: string): Promise<UserToResp> {
     const UserToResponse: User | undefined = await this.UserRepo
-      .createQueryBuilder()
+      .createQueryBuilder('user')
       .where('user.id = :id', { id: userId })
       .getOne();
     if (!UserToResponse) throw new HttpError('There are no user with such id!', 404);
 
     try {
       await this.UserRepo
-        .createQueryBuilder()
+        .createQueryBuilder('user')
         .delete()
         .from(User)
         .where('user.id = :id', { id: userId })
@@ -142,7 +141,7 @@ class UsersRepo {
 
     try {
       await getManager().getRepository(Task)
-        .createQueryBuilder()
+        .createQueryBuilder('task')
         .update()
         .set({userId: null})
         .where('user.id = :id', { id: userId })
