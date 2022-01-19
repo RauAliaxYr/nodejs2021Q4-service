@@ -1,8 +1,8 @@
-import { Task } from '../models/task.model';
-import { Board } from '../models/board.model';
+import { Task } from '../../entities/task.model';
+import { Board } from '../../entities/board.model';
 import { getManager, Repository } from 'typeorm';
-import { User } from '../models/user.model';
-import { ColumnToBoard } from '../models/columns.model';
+import { User } from '../../entities/user.model';
+import { ColumnToBoard } from '../../entities/columns.model';
 
 type TaskBody = {
   title: string,

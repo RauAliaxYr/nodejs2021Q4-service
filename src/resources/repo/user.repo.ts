@@ -1,7 +1,7 @@
-import { User } from '../models/user.model';
+import { User } from '../../entities/user.model';
 
 import { HttpError } from '../../errors';
-import { Task } from '../models/task.model';
+import { Task } from '../../entities/task.model';
 import { getManager } from 'typeorm';
 import { Repository } from 'typeorm/repository/Repository';
 

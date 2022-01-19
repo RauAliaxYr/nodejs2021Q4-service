@@ -1,15 +1,15 @@
-import { User } from '../resources/models/user.model';
-import {Task} from "../resources/models/task.model"
-import {Board} from "../resources/models/board.model"
+import { createConnection, getConnection } from 'typeorm';
 
-const users: Array<User> = [];
-const boards: Array<Board> = [];
-const tasks: Array<Task> = [];
-const DB ={
-  users,
-  boards,
-  tasks
-};
+export const connectToDB = async (
+  runApp: () =>void):Promise<void> => {
+  try {
+    await createConnection('dudu')
+    runApp()
+    process.stdout.write('Successful connection to database\n');
+  }
+  catch (e) {
+    throw new Error('Fail connection to database\n');
+  }
+}
 
 
-export { DB };

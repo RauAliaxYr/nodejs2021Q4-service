@@ -1,7 +1,7 @@
 import { TaskRepo } from '../repo/task.repo';
 import {  throwError } from '../../errors';
 import { Request, Response } from 'express';
-import { Task } from '../models/task.model';
+import { Task } from '../../entities/task.model';
 import { CustomLogger } from '../../logger/logger';
 
 type TaskBody = {

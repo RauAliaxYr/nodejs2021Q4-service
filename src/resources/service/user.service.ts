@@ -1,7 +1,7 @@
 import { UsersRepo } from '../repo/user.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
-import { User } from '../models/user.model';
+import { User } from '../../entities/user.model';
 import { CustomLogger } from '../../logger/logger';
 
 

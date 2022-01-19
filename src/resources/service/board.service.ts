@@ -1,7 +1,7 @@
 import { BoardRepo } from '../repo/board.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
-import { Board } from '../models/board.model';
+import { Board } from '../../entities/board.model';
 import { CustomLogger } from '../../logger/logger';
 
 /**

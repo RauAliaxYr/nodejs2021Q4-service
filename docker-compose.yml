@@ -1,48 +1,40 @@
 version: '3.7'
 
 volumes:
-  postgresDB:
+  postgres:
   logs:
 
 services:
   ts-node-docker:
-    networks:
-      - my_network
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: base
+    build: .
     volumes:
-      - logs:/home/node/app/log.txt
-      - ./src:/home/node/app/src
-      - ./nodemon.json:/home/node/app/nodemon.json
-    container_name: ts-node-docker
+      - logs:/app/log.txt
+      - ./src:/app/src
+    container_name: node
     environment:
-      PORT: ${PORT}
-    expose:
-      - ${PORT}
+      - PORT=${PORT}
     ports:
       - ${PORT}:${PORT}
-    command: npm run dev
-    links:
-      - db
+    depends_on:
+      - postgres
     restart: always
-  db:
+    networks:
+      - my_network
+  postgres:
+    build: ./db/
     networks:
       - my_network
     image: postgres:9.5.13-alpine
     volumes:
-      - postgresDB:/home/node/app/var/lib/postgresql
+      - postgres:/var/lib/postgresql
     ports:
-      - ${DB_PORTS}
+      - ${ORM_PORT}:${ORM_PORT}
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${ORM_USERNAME}
+      POSTGRES_PASSWORD: ${ORM_PASSWORD}
+      POSTGRES_DB: ${ORM_DATABASE}
     restart: always
 
 networks:
   my_network:
     driver: bridge
-  bridge:
-    external: true

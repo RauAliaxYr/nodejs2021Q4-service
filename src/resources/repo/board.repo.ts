@@ -1,7 +1,7 @@
-import { Board } from '../models/board.model';
-import { ColumnToBoard } from '../models/columns.model';
+import { Board } from '../../entities/board.model';
+import { ColumnToBoard } from '../../entities/columns.model';
 import { HttpError } from '../../errors';
-import { Task } from '../models/task.model';
+import { Task } from '../../entities/task.model';
 import { getManager } from 'typeorm';
 import { Repository } from 'typeorm/repository/Repository';
 
