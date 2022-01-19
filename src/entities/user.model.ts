@@ -1,21 +1,19 @@
 import * as uuid from "uuid";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Task } from './task.model';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
 /**
  * The main model of user.
  */
-@Entity()
-class User {
-  @PrimaryGeneratedColumn()
+@Entity({name: 'user'})
+export class User {
+  @PrimaryGeneratedColumn('uuid')
   id:string
-  @Column("text")
-  name:string|null
-  @Column("string")
-  login:string|null
-  @Column("string")
-  password:string|null
-  @OneToMany(type => Task,task => task.columnId)
-  tasks:Task[]|null
+  @Column("varchar")
+  name:string
+  @Column("varchar")
+  login:string
+  @Column("varchar")
+  password:string
 
   constructor(name:string,login:string,password:string) {
 
@@ -23,7 +21,6 @@ class User {
     this.name = name
     this.login = login
     this.password = password
-    this.tasks =[]
   }
 
   static toResponse(user:User) {
@@ -32,4 +29,3 @@ class User {
   }
 }
 
-export {User}

@@ -33,3 +33,33 @@ ERROR [| URL : /boards/4cb36a15-4d6f-4cdc-9c27-a4f9c37d1c79/tasks/523722f2-3083-
 ERROR [| URL : /boards/4cb36a15-4d6f-4cdc-9c27-a4f9c37d1c79/tasks/70771e2b-66cc-4aea-9f9d-2b763c68d0ff | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
 ERROR [| URL : /boards/4cb36a15-4d6f-4cdc-9c27-a4f9c37d1c79/tasks/7304ce67-5ddf-4f88-be44-8d8167c490dc | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
 ERROR [| URL : /boards/486b5b19-cdd3-4ee9-9251-ced7c50a5f74/tasks/80635604-2250-4195-b298-8bbfdd16e6b0 | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There are no tasks on Autotest board board. ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: SASL: SCRAM-SERVER-FIRST-MESSAGE: client password must be a string ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: listen EADDRINUSE: address already in use :::4000 ] 
+ERROR [| Error Msg : Error: listen EADDRINUSE: address already in use :::4000 ] 
+ERROR [| Error Msg : Error: listen EADDRINUSE: address already in use :::4000 ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 
+ERROR [| Error Msg : Error: Fail connection to database
+ ] 

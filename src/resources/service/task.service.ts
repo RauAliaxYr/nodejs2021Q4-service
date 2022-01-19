@@ -1,16 +1,17 @@
-import { TaskRepo } from '../repo/task.repo';
-import {  throwError } from '../../errors';
+import { AllTasks, createTask, delTask, getTaskById, getTasksById, updateTask } from '../repo/task.repo';
+import { throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { Task } from '../../entities/task.model';
 import { CustomLogger } from '../../logger/logger';
 
+
 type TaskBody = {
   title: string,
-  order: string|number,
+  order: string
   description: string,
-  userId: string|null,
-  boardId: string|null,
-  columnId: string|null
+  userId: string,
+  boardId: string,
+  columnId: string
 
 }
 /**
@@ -25,7 +26,7 @@ class TaskService {
   static async getAll(req: Request, res: Response) {
 
     try {
-      const tasks = await TaskRepo.All();
+      const tasks = await AllTasks();
 
       res.status(200);
       res.send(tasks);
@@ -46,7 +47,7 @@ class TaskService {
       const { taskId } = req.params;
       const { boardId } = req.params;
 
-      const task: Task = await TaskRepo.getTaskById(boardId,taskId);
+      const task: Task = await getTaskById(boardId,taskId);
 
       res.status(200)
       res.send(task);
@@ -67,7 +68,7 @@ class TaskService {
     try {
       const { boardId } = req.params;
 
-      const task = await TaskRepo.getTasksById(boardId);
+      const task = await getTasksById(boardId);
 
       res.status(200)
       res.send(task);
@@ -88,7 +89,7 @@ class TaskService {
       const { boardId } = req.params;
       const requestBody: TaskBody  = await req.body;
 
-      const task: Task = await TaskRepo.createTask(requestBody,boardId);
+      const task: Task = await createTask(requestBody,boardId);
 
       res.status(201)
       res.send(task);
@@ -110,7 +111,7 @@ class TaskService {
       const { boardId } = req.params
       const taskBody = req.body
 
-      const task = await TaskRepo.updateTask(
+      const task = await updateTask(
         boardId,
         taskId,
         taskBody
@@ -132,7 +133,7 @@ class TaskService {
 
     try {
 
-      await TaskRepo.delTask(req.params.boardId, req.params.taskId);
+      await delTask(req.params.boardId, req.params.taskId);
 
       res.status(204)
       CustomLogger.infoLog(req, 204);

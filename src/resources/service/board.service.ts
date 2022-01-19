@@ -1,8 +1,9 @@
-import { BoardRepo } from '../repo/board.repo';
+import { createBoard, delBoard, getBoardById, updateBoard } from '../repo/board.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { Board } from '../../entities/board.model';
 import { CustomLogger } from '../../logger/logger';
+import { getAll } from '../repo/user.repo';
 
 /**
  * The main service for board.
@@ -16,7 +17,7 @@ class BoardService {
   static async getAll(req: Request, res: Response) {
 
     try {
-      const boards = await BoardRepo.getAll();
+      const boards = await getAll();
       res.status(200);
       res.send(boards);
       CustomLogger.infoLog(req, 200);
@@ -35,7 +36,7 @@ class BoardService {
     try {
       const { boardId } = req.params;
 
-      const board = await BoardRepo.getBoardById(boardId);
+      const board = await getBoardById(boardId);
 
       res.status(200)
       res.send(board);
@@ -55,7 +56,7 @@ class BoardService {
     try {
       const requestBody: Board = await req.body;
 
-      const board = await BoardRepo.createBoard(requestBody);
+      const board = await createBoard(requestBody);
 
       res.status(201)
       res.send(board);
@@ -76,7 +77,7 @@ class BoardService {
       const { boardId } = req.params;
       const boardBody = req.body
 
-      const board = await BoardRepo.updateBoard(
+      const board = await updateBoard(
         boardId,
         boardBody
       );
@@ -96,7 +97,7 @@ class BoardService {
   static async deleteBoard(req: Request, res: Response) {
 
     try {
-      await BoardRepo.delBoard(req.params.boardId);
+      await delBoard(req.params.boardId);
 
       res.status(204)
       CustomLogger.infoLog(req, 204);

@@ -1,32 +1,37 @@
 import * as uuid from "uuid";
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import {ColumnToBoard} from "./columns.model"
-import { Task } from './task.model';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+
 /**
  * The main model of board.
  */
 
-@Entity()
+@Entity({name: 'board'})
 export class Board {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @PrimaryGeneratedColumn()
-  id:string
+  @Column('varchar')
+  title: string;
 
-  @Column("text")
-  title:string|null
+  @Column({type: "json", nullable: true})
+  columns: IColumn[];
 
-  @OneToMany(type => ColumnToBoard, column => column.board)
-  columns:ColumnToBoard[]
-
-  @OneToMany(type => Task, task => task.boardId)
-  tasks:Task[]
-
-  constructor(title:string,columns:Array<ColumnToBoard>) {
+  constructor(title:string,columns:IColumn[]) {
     this.id = uuid.v4();
     this.title = title
     this.columns = columns
-    this.tasks = []
+
+  }
+  addColumn(title: string):void {
+    const id = uuid.v4();
+    const order = Math.max(...this.columns.map(item => item.order)) + 1;
+    this.columns.push({ id, title, order } as IColumn);
   }
 
+}
+export interface IColumn {
+  id: string;
+  title: string;
+  order: number;
 }
 

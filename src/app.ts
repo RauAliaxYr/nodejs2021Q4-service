@@ -1,5 +1,4 @@
 import express from 'express';
-import { createConnection } from 'typeorm';
 import userRouter from './resources/routs/user.route';
 import boardsRouter from './resources/routs/board.route';
 import taskRouter from './resources/routs/task.route';
@@ -16,6 +15,7 @@ app.use(taskRouter);
 
 process
   .on('unhandledRejection', (err, promise) => {
+
     throwUncaughtException(err as Error);
   })
   .on('uncaughtException', err => {

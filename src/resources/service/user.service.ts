@@ -1,4 +1,4 @@
-import { UsersRepo } from '../repo/user.repo';
+import { createUser, deleteUser, getAll, getUserById, updateUser } from '../repo/user.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { User } from '../../entities/user.model';
@@ -29,7 +29,7 @@ class UsersService {
   static async getAll(req: Request, res: Response) {
 
     try {
-      const users = await UsersRepo.getAll();
+      const users = await getAll();
       res.status(200);
       res.send(users);
       CustomLogger.infoLog(req, 200);
@@ -49,7 +49,7 @@ class UsersService {
     try {
       const { userId } = req.params;
 
-      const user = await UsersRepo.getUserById(userId);
+      const user = await getUserById(userId);
 
       res.status(200);
       res.send(user);
@@ -70,7 +70,7 @@ class UsersService {
     try {
       const requestBody: User = await req.body;
 
-      const user = await UsersRepo.createUser(requestBody);
+      const user = await createUser(requestBody);
 
       res.status(201);
       res.send(user);
@@ -91,7 +91,7 @@ class UsersService {
     try {
       const reqBody: tryBody = await req.body;
 
-      const user: UserToResp = await UsersRepo.updateUser(
+      const user: UserToResp = await updateUser(
         req.params.userId,
         reqBody
       );
@@ -112,7 +112,7 @@ class UsersService {
   static async deleteUser(req: Request, res: Response) {
 
     try {
-      await UsersRepo.deleteUser(req.params.userId);
+      await deleteUser(req.params.userId);
 
       res.status(204);
       CustomLogger.infoLog(req, 204);
