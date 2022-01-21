@@ -11,14 +11,14 @@ if(envPort && !isNaN(parseInt(envPort))) port = parseInt(envPort);
 
 export const config: ConnectionOptions = {
   type: 'postgres',
-  migrationsRun: true,
+  migrationsRun: false,
   host: "postgres",
   port,
-  username: process.env['ORM_USERNAME'] || 'postgres',
-  password: process.env['ORM_PASSWORD'] || 'postgres',
-  database: process.env['ORM_DATABASE'] || 'postgres',
-  synchronize: process.env['ORM_SYNCHRONIZE'] === 'false',
-  logging: false,
+  username: process.env['ORM_USERNAME'],
+  password: process.env['ORM_PASSWORD'],
+  database: process.env['ORM_DATABASE'],
+  synchronize: true,
+  logging: true,
   entities: ['./src/entities/**/*.ts'],
   migrations: ['./src/migrations/**/*.ts'],
   cli: {

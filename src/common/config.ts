@@ -12,17 +12,17 @@ export const {MONGO_CONNECTION_STRING} = process.env;
 export const {JWT_SECRET_KEY} = process.env;
 export const AUTH_MODE = process.env.AUTH_MODE === 'true';
 export const {LOG_STATUS}= process.env
-export const {TYPEORM_CONNECTION}= process.env
-export const {TYPEORM_HOST}= process.env
-export const {TYPEORM_USERNAME}= process.env
-export const {TYPEORM_PASSWORD}= process.env
-export const {TYPEORM_DATABASE}= process.env
-export const {TYPEORM_PORT}= process.env
-export const {TYPEORM_SYNCHRONIZE}= process.env
-export const {TYPEORM_LOGGING}= process.env
-export const {TYPEORM_ENTITIES}= process.env
-export const {TYPEORM_MIGRATIONS}= process.env
-export const {TYPEORM_SUBSCRIBERS}= process.env
+export const {ORM_CONNECTION}= process.env
+export const {ORM_HOST}= process.env
+export const {ORM_USERNAME}= process.env
+export const {ORM_PASSWORD}= process.env
+export const {ORM_DATABASE}= process.env
+export const {ORM_PORT}= process.env
+export const {ORM_SYNCHRONIZE}= process.env
+export const {ORM_LOGGING}= process.env
+export const {ORM_ENTITIES}= process.env
+export const {ORM_MIGRATIONS}= process.env
+export const {ORM_SUBSCRIBERS}= process.env
 
 
 

@@ -6,40 +6,40 @@ import { Board } from './board.model';
 /**
  * The main model of task.
  */
-@Entity({name: 'task'})
+@Entity()
 export class Task {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column("varchar")
+  @Column()
   title: string;
 
-  @Column("varchar")
-  order: string;
+  @Column()
+  order: number;
 
-  @Column("text")
+  @Column()
   description: string;
 
   @ManyToOne(() => User, (user) => user.id, {
-    nullable: true,
     onDelete: 'SET NULL',
+    nullable: true,
+    cascade: true,
   })
-
   @JoinColumn({ name: 'userId' })
-  userId: string | null = null;
+  userId: string | null;
 
   @ManyToOne(() => Board, (board) => board.id, {
+    onDelete: 'SET NULL',
     nullable: true,
-    onDelete: 'CASCADE',
+    cascade: true,
   })
-
   @JoinColumn({ name: 'boardId' })
-  boardId: string | null = null;
+  boardId: string | null;
 
-  @Column('varchar', { nullable: true})
+  @Column({ nullable: true })
   columnId: string;
 
-  constructor(title: string, order: string, description: string, userId: string, boardId: string, columnId: string) {
+  constructor(title: string, order: number, description: string, userId: string, boardId: string, columnId: string) {
 
     this.id = uuid.v4();
     this.title = title;

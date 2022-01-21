@@ -5,7 +5,7 @@ import { getManager, getRepository } from 'typeorm';
 
 type TaskBody = {
   title: string,
-  order: string,
+  order: number,
   description: string,
   userId: string,
   boardId: string,

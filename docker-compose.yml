@@ -31,7 +31,7 @@ services:
       - ${ORM_PORT}:${ORM_PORT}
     environment:
       POSTGRES_USER: ${ORM_USERNAME}
-      POSTGRES_PASSWORD: ${ORM_PASSWORD}
+      POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: ${ORM_DATABASE}
     restart: always
 

@@ -4,4 +4,5 @@ COPY package*.json ./
 RUN npm i
 COPY . ./
 EXPOSE ${PORT}
+CMD ["typeorm", "migration:generate", "-n","migration"]
 CMD ["npm", "start"]

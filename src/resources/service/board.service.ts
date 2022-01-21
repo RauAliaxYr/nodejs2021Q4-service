@@ -3,7 +3,7 @@ import { throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { Board } from '../../entities/board.model';
 import { CustomLogger } from '../../logger/logger';
-import { getAll } from '../repo/user.repo';
+import { getAll } from '../repo/board.repo';
 
 /**
  * The main service for board.

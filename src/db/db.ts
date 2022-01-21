@@ -4,6 +4,7 @@ import { config } from '../../ormconfig';
 export const connectToDB = async (
   runApp: () =>void):Promise<void> => {
   try {
+    console.log(config)
     await createConnection(config).catch((e)=>{
       throw new Error(e)}
     )

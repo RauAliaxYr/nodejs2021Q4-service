@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 /**
  * The main model of user.
  */
-@Entity({name: 'user'})
+@Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id:string

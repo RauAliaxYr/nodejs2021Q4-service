@@ -5,12 +5,12 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
  * The main model of board.
  */
 
-@Entity({name: 'board'})
+@Entity()
 export class Board {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('varchar')
+  @Column('text')
   title: string;
 
   @Column({type: "json", nullable: true})

@@ -15,7 +15,7 @@ type tryBody = {
 export const getAll = async (): Promise<Board[]> => {
   const BoardRepo = getRepository(Board);
 
-  return BoardRepo.find({ where: {} });
+  return BoardRepo.find();
 };
 /**
  * take board's ID and returns a board ID

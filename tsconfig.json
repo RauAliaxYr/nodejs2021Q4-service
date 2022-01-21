@@ -21,6 +21,7 @@
     "module": "commonjs",
     "outDir": "build",
     "rootDir": "./",
-    "sourceMap": true
+    "sourceMap": true,
+    "emitDecoratorMetadata": true
   }
 }
