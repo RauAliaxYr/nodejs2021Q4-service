@@ -67,3 +67,5 @@ ERROR [| Error Msg : Error: Fail connection to database
  ] 
 ERROR [| Error Msg : Error: Fail connection to database
  ] 
+ERROR [| URL : /boards/7178c2d8-6b56-492e-858a-5e4e3c42c608 | STATUSCODE : 404 | Error Msg : [HTTP-ERROR]: There is no board with such id! ] 
+ERROR [| URL : /boards/718586b6-3086-43ed-87e1-8b457c1e7b93/tasks/b4f2aed1-d499-479c-8c2a-5f484c0d775d | STATUSCODE : 404 | Error Msg : Error: There are no tasks with such id. ] 

@@ -3,22 +3,23 @@ import * as dotenv from 'dotenv'
 import * as path from 'path';
 
 dotenv.config({
-  path: path.join(__dirname, '../.env')
+  path: path.join(__dirname, '../../.env')
 });
+
+const envPort = process.env['POSTGRES_PORT'];
 let port = 5432;
-const envPort = process.env['ORM_PORT'];
 if(envPort && !isNaN(parseInt(envPort))) port = parseInt(envPort);
 
-export const config: ConnectionOptions = {
+const config: ConnectionOptions = {
   type: 'postgres',
-  migrationsRun: false,
+  synchronize: process.env['DB_SYNC'] === 'false',
+  migrationsRun: true,
   host: "postgres",
   port,
-  username: process.env['ORM_USERNAME'],
-  password: process.env['ORM_PASSWORD'],
-  database: process.env['ORM_DATABASE'],
-  synchronize: true,
-  logging: true,
+  username: process.env['POSTGRES_USER'] || 'postgres',
+  password: process.env['POSTGRES_PASSWORD'] || 'admin',
+  database: 'postgres',
+  logging: false,
   entities: ['./src/entities/**/*.ts'],
   migrations: ['./src/migrations/**/*.ts'],
   cli: {
@@ -27,3 +28,4 @@ export const config: ConnectionOptions = {
   },
 };
 
+export default config;
