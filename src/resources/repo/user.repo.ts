@@ -1,14 +1,14 @@
-import { User } from '../../entities/user.model';
+import { IUser, User } from '../../entities/user.model';
 
 import { HttpError } from '../../errors';
 import { getRepository } from 'typeorm';
-
 
 type UserToResp = {
   id: string,
   name: string | null
   login: string | null
 }
+
 type tryBody = {
   name: string,
   login: string,
@@ -26,16 +26,16 @@ export const getAll = async (): Promise<User[]> => {
 
 /**
  * take user's ID and returns a user by ID
- * @param userId user's ID
+ * @param id user's ID
  * @returns User by ID
  */
-export const getUserById = async (userId: string): Promise<UserToResp | 'NOT_FOUND'> => {
+export const getUserById = async (id: string): Promise<UserToResp | 'NOT_FOUND'> => {
   let userById: User | undefined;
   const userRepository = getRepository(User);
   try {
     userById = await userRepository
       .createQueryBuilder('user')
-      .where('user.id = :id', { id: userId })
+      .where('user.id = :id', { id: id })
       .getOne();
   } catch (e) {
     throw new Error('Error into db (user creation)');
@@ -53,7 +53,7 @@ export const getUserById = async (userId: string): Promise<UserToResp | 'NOT_FOU
  * @param newUserBody new user's body
  * @returns created User
  */
-export const createUser = async (newUserBody: User): Promise<UserToResp> => {
+export const createUser = async (newUserBody: IUser): Promise<UserToResp> => {
   if (!newUserBody.name) {
     throw new HttpError('Please enter the name.', 405);
   }
@@ -66,7 +66,7 @@ export const createUser = async (newUserBody: User): Promise<UserToResp> => {
     throw new HttpError('Please enter the password.', 405);
   }
 
-  const userData: User = new User(newUserBody.name, newUserBody.login, newUserBody.password);
+  const userData: User = new User(newUserBody);
   const userRepository = getRepository(User);
   try {
     await userRepository
@@ -84,18 +84,18 @@ export const createUser = async (newUserBody: User): Promise<UserToResp> => {
 
 /**
  * take user's ID and user's body and returns a updated user
- * @param userId user's ID
+ * @param id user's ID
  * @param body new user's body
  * @returns updated user
  */
-export const updateUser = async (userId: string, body: tryBody): Promise<UserToResp> => {
+export const updateUser = async (id: string, body: tryBody): Promise<UserToResp> => {
   if (!body.name && !body.login && !body.password) {
     throw new HttpError('Please enter you valid changes.', 409);
   }
   const userRepository = getRepository(User);
-  const res = await userRepository.findOne(userId);
+  const res = await userRepository.findOne(id);
   if (res === undefined) throw new HttpError('There are no user with such id!', 404);
-  const updatedRes = await userRepository.update(userId,body);
+  const updatedRes = await userRepository.update(id,body);
   return updatedRes.raw;
 };
 

@@ -1,12 +1,13 @@
 import express from 'express';
-import { TaskService } from '../service/task.service'
+import { TaskService } from '../service/task.service';
+import { isAuthorized } from '../../auth/isAuthorized';
 
-const taskRouter = express.Router()
+const taskRouter = express.Router();
 
-taskRouter.get('/boards/:boardId/tasks', TaskService.getAll)
-taskRouter.get('/boards/:boardId/tasks/:taskId', TaskService.getTaskByID)
-taskRouter.post('/boards/:boardId/tasks', TaskService.createTask)
-taskRouter.put('/boards/:boardId/tasks/:taskId',TaskService.updateTask)
-taskRouter.delete('/boards/:boardId/tasks/:taskId',TaskService.deleteTask)
+taskRouter.get('/boards/:boardId/tasks', isAuthorized, TaskService.getAll);
+taskRouter.get('/boards/:boardId/tasks/:id', isAuthorized, TaskService.getTaskByID);
+taskRouter.post('/boards/:boardId/tasks', isAuthorized, TaskService.createTask);
+taskRouter.put('/boards/:boardId/tasks/:taskId', isAuthorized, TaskService.updateTask);
+taskRouter.delete('/boards/:boardId/tasks/:taskId', isAuthorized, TaskService.deleteTask);
 
-export default taskRouter
+export default taskRouter;

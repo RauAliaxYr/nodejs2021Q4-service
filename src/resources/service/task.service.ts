@@ -1,19 +1,10 @@
 import { AllTasks, createTask, delTask, getTaskById, getTasksById, updateTask } from '../repo/task.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
-import { Task } from '../../entities/task.model';
+import { ITask, Task } from '../../entities/task.model';
 import { CustomLogger } from '../../logger/logger';
 
 
-type TaskBody = {
-  title: string,
-  order: number
-  description: string,
-  userId: string,
-  boardId: string,
-  columnId: string
-
-}
 /**
  * The main service for tasks.
  */
@@ -44,10 +35,13 @@ class TaskService {
   static async getTaskByID(req: Request, res: Response) {
 
     try {
-      const { taskId } = req.params;
-      const { boardId } = req.params;
 
-      const task: Task = await getTaskById(boardId,taskId);
+      console.log(req.params)
+
+      const { boardId, id } = req.params;
+
+
+      const task: Task|void = await getTaskById(boardId,id).catch(e => console.log(e));
 
       res.status(200)
       res.send(task);
@@ -86,11 +80,7 @@ class TaskService {
   static async createTask(req: Request, res: Response) {
 
     try {
-      const { boardId } = req.params;
-      const requestBody: TaskBody  = await req.body;
-
-      const task: Task = await createTask(requestBody,boardId);
-
+      const task: Task = await createTask(req.body);
       res.status(201)
       res.send(task);
       CustomLogger.infoLog(req, 201);

@@ -22,11 +22,23 @@
     <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logErrors.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ormconfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ormconfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/db.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/board.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/board.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/task.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/1642767471637-asd.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/routs/task.route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/routs/task.route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/service/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/task.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +155,9 @@
       <workItem from="1642248720679" duration="1072000" />
       <workItem from="1642256613058" duration="1592000" />
       <workItem from="1642756173768" duration="9308000" />
-      <workItem from="1642766817594" duration="874000" />
+      <workItem from="1642766817594" duration="10381000" />
+      <workItem from="1642849618064" duration="1346000" />
+      <workItem from="1642934720507" duration="2159000" />
     </task>
     <servers />
   </component>
@@ -175,10 +189,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="945" y="234" width="740" height="642" key="#docker-compose.yml.postgres:_Compose_Deployment/0.0.1920.1040@0.0.1920.1040" timestamp="1642759376704" />
-    <state x="155" y="278" key="FileChooserDialogImpl" timestamp="1642765617489">
+    <state x="155" y="278" key="FileChooserDialogImpl" timestamp="1642779275541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="155" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1642765617489" />
+    <state x="155" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1642779275541" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1638654594825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

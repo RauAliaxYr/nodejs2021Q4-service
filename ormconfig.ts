@@ -12,7 +12,7 @@ if(envPort && !isNaN(parseInt(envPort))) port = parseInt(envPort);
 
 const config: ConnectionOptions = {
   type: 'postgres',
-  synchronize: process.env['DB_SYNC'] === 'false',
+  synchronize: false,
   migrationsRun: true,
   host: "postgres",
   port,

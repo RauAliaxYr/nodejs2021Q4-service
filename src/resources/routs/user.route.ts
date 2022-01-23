@@ -1,12 +1,13 @@
 import express from 'express';
-import { UsersService } from '../service/user.service'
+import { UsersService } from '../service/user.service';
+import { isAuthorized } from '../../auth/isAuthorized';
 
-const userRouter = express.Router()
+const userRouter = express.Router();
 
-userRouter.get('/users', UsersService.getAll)
-userRouter.get('/users/:userId', UsersService.getUserByID)
-userRouter.post('/users', UsersService.createUser)
-userRouter.put('/users/:userId',UsersService.updateUser)
-userRouter.delete('/users/:userId',UsersService.deleteUser)
+userRouter.get('/users', isAuthorized, UsersService.getAll);
+userRouter.get('/users/:userId', isAuthorized, UsersService.getUserByID);
+userRouter.post('/users', isAuthorized, UsersService.createUser);
+userRouter.put('/users/:userId', isAuthorized, UsersService.updateUser);
+userRouter.delete('/users/:userId', isAuthorized, UsersService.deleteUser);
 
-export default userRouter
+export default userRouter;

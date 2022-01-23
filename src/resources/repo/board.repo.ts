@@ -1,4 +1,4 @@
-import { Board, IColumn } from '../../entities/board.model';
+import { Board, IBoard, IColumn } from '../../entities/board.model';
 import { HttpError } from '../../errors';
 import { getRepository } from 'typeorm';
 
@@ -35,7 +35,7 @@ export const getBoardById = async (id: string): Promise<Board> => {
  * @param newBoardBody new board's body
  * @returns task by board and task ID
  */
-export const createBoard = async (newBoardBody: Board): Promise<Board> => {
+export const createBoard = async (newBoardBody: IBoard): Promise<Board> => {
   const BoardRepo = getRepository(Board);
   if (!newBoardBody.title) {
     throw new HttpError('Please enter the name.', 405);
@@ -45,7 +45,7 @@ export const createBoard = async (newBoardBody: Board): Promise<Board> => {
     throw new HttpError('Please enter the login.', 405);
   }
 
-  const boardData: Board = new Board(newBoardBody.title, newBoardBody.columns);
+  const boardData: Board = new Board(newBoardBody);
 
   try {
     await BoardRepo
@@ -66,20 +66,17 @@ export const createBoard = async (newBoardBody: Board): Promise<Board> => {
  * @param body new board's body
  * @returns updated task
  */
-export const updateBoard = async (id: string, body: tryBody): Promise<Board> => {
+export const updateBoard = async (id: string, body: IBoard): Promise<Board> => {
   const BoardRepo = getRepository(Board);
   if (!body.title && !body.columns) {
     throw new HttpError('Please enter you valid changes.', 409);
   }
 
   try {
-    await BoardRepo
-      .createQueryBuilder()
-      .update()
-      .set({ title: body.title, columns: body.columns })
-      .where('board.id = :id', { id: id })
-      .returning('*')
-      .execute();
+    const foundBoard = await BoardRepo.findOne({id});
+    if (foundBoard) {
+      return BoardRepo.save({...foundBoard, ...body});
+    }
   } catch (e) {
     throw new Error('Error into db (board updation)');
   }
@@ -98,7 +95,7 @@ export const updateBoard = async (id: string, body: tryBody): Promise<Board> => 
  * @param id board's ID
  * @returns deleted board
  */
-export const delBoard = async (id: string): Promise<Board> => {
+export const delBoard = async (id: string): Promise<IBoard> => {
   const BoardRepo = getRepository(Board);
   const boardFind: Board | undefined = await BoardRepo
     .createQueryBuilder('board')

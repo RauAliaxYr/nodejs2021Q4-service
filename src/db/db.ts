@@ -4,9 +4,9 @@ import  config  from '../../ormconfig';
 export const connectToDB = async (
   runApp: () =>void):Promise<void> => {
   try {
-    console.log(config)
+
     await createConnection(config).catch((e)=>{
-      throw new Error(e)}
+      console.log(e)}
     )
     runApp()
     process.stdout.write('Successful connection to database\n');

@@ -1,57 +1,87 @@
-import * as uuid from 'uuid';
+import { v4 as uuid } from 'uuid'
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { User } from './user.model';
+import { IUser, User } from './user.model';
 import { Board } from './board.model';
 
+
+export interface ITask {
+  id: string;
+  title: string;
+  order: number;
+  description: string;
+  userId: string | null;
+  boardId: string;
+  columnId: string;
+}
 /**
  * The main model of task.
  */
-@Entity()
+@Entity({name: 'task'})
 export class Task {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column('varchar', {length: 50})
   title: string;
 
-  @Column()
+  @Column('integer')
   order: number;
 
-  @Column()
+  @Column('varchar', {length: 150})
   description: string;
 
   @ManyToOne(() => User, (user) => user.id, {
-    onDelete: 'SET NULL',
     nullable: true,
-    cascade: true,
+    onDelete: 'SET NULL',
   })
+
   @JoinColumn({ name: 'userId' })
-  userId: string | null;
+  userId: string | null = null;
 
   @ManyToOne(() => Board, (board) => board.id, {
-    onDelete: 'SET NULL',
     nullable: true,
-    cascade: true,
+    onDelete: 'CASCADE',
   })
-  @JoinColumn({ name: 'boardId' })
-  boardId: string | null;
 
-  @Column({ nullable: true })
+  @JoinColumn({ name: 'boardId' })
+  boardId: string | null = null;
+
+  @Column('varchar', {length: 40, nullable: true})
   columnId: string;
 
-  constructor(title: string, order: number, description: string, userId: string, boardId: string, columnId: string) {
-
-    this.id = uuid.v4();
+  /**
+   * Task constructor
+   * @param id - instance identifier
+   * @param title - task title
+   * @param order - task order
+   * @param description - task description
+   * @param userId - task owner identifier
+   * @param boardId - board identifier
+   * @param columnId - column identifier
+   */
+  constructor({
+                id = uuid(),
+                title = 'Task',
+                order = 0,
+                description = '',
+                userId = null,
+                boardId = '',
+                columnId = ''
+              } = {} as ITask) {
+    this.id = id;
     this.title = title;
     this.order = order;
     this.description = description;
     this.userId = userId;
     this.boardId = boardId;
     this.columnId = columnId;
-
   }
-  assignUser(user: User):void {
+
+  /**
+   * Assign user to task
+   * @param user - User instance.
+   */
+  assignUser(user: IUser):void {
     this.userId = user.id;
   }
-
 }
