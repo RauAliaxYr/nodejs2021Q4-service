@@ -70,11 +70,5 @@ export class User implements IUser {
     });
   }
 
-  passwordsMatch(password: string) {
-    if (!this.password) {
-      return false;
-    }
-    return bcrypt.compareSync(password, this.password);
-  }
 }
 
