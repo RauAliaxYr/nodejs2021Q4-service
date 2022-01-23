@@ -1,4 +1,4 @@
-import { AllTasks, createTask, delTask, getTaskById, getTasksById, updateTask } from '../repo/task.repo';
+import { AllTasks, createTask, delTask, getTaskById,  updateTask } from '../repo/task.repo';
 import { throwError } from '../../errors';
 import { Request, Response } from 'express';
 import { ITask, Task } from '../../entities/task.model';
@@ -36,10 +36,7 @@ class TaskService {
 
     try {
 
-      console.log(req.params)
-
       const { boardId, id } = req.params;
-
 
       const task: Task|void = await getTaskById(boardId,id).catch(e => console.log(e));
 
@@ -52,26 +49,7 @@ class TaskService {
       throwError(req,res, err as Error);
     }
   }
-  /**
-   * handles a GET request and make return response with a task by boardID
-   * @param req GET Request
-   * @param res GET Response
-   */
-  static async getTasksByID(req: Request, res: Response) {
 
-    try {
-      const { boardId } = req.params;
-
-      const task = await getTasksById(boardId);
-
-      res.status(200)
-      res.send(task);
-      CustomLogger.infoLog(req, 200);
-      res.end();
-    } catch (err) {
-      throwError(req,res, err as Error);
-    }
-  }
   /**
    * handles a POST request and make return response with a created task
    * @param req POST Request

@@ -21,34 +21,33 @@ export class Task {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('varchar', {length: 50})
+  @Column()
   title: string;
 
-  @Column('integer')
+  @Column()
   order: number;
 
-  @Column('varchar', {length: 150})
+  @Column()
   description: string;
 
   @ManyToOne(() => User, (user) => user.id, {
-    nullable: true,
     onDelete: 'SET NULL',
+    nullable: true,
   })
-
   @JoinColumn({ name: 'userId' })
-  userId: string | null = null;
+  @Column({ type: 'uuid', nullable: true, name: 'userId' })
+  userId: string | null | undefined;
 
   @ManyToOne(() => Board, (board) => board.id, {
-    nullable: true,
     onDelete: 'CASCADE',
+    nullable: true,
   })
-
   @JoinColumn({ name: 'boardId' })
-  boardId: string | null = null;
+  @Column({ type: 'uuid', nullable: true, name: 'boardId' })
+  boardId: string;
 
-  @Column('varchar', {length: 40, nullable: true})
+  @Column({ type: 'uuid', nullable: true, name: 'columnId' })
   columnId: string;
-
   /**
    * Task constructor
    * @param id - instance identifier

@@ -21,9 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logErrors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/task.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/task.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/1642937664694-migration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/service/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/task.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +144,8 @@
       <workItem from="1642756173768" duration="9308000" />
       <workItem from="1642766817594" duration="10381000" />
       <workItem from="1642849618064" duration="1346000" />
-      <workItem from="1642934720507" duration="3832000" />
+      <workItem from="1642934720507" duration="4387000" />
+      <workItem from="1642947488963" duration="3631000" />
     </task>
     <servers />
   </component>

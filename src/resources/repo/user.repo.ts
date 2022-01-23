@@ -2,6 +2,7 @@ import { IUser, User } from '../../entities/user.model';
 
 import { HttpError } from '../../errors';
 import { getRepository } from 'typeorm';
+import { Task } from '../../entities/task.model';
 
 type UserToResp = {
   id: string,
@@ -108,6 +109,11 @@ export const updateUser = async (id: string, body: tryBody): Promise<UserToResp>
 export const deleteUser = async (id: string): Promise<UserToResp> => {
   const userRepository = getRepository(User);
   const deletedRes = await userRepository.delete(id);
+  const tasks = await getRepository(Task).find({ userId: id });
+  tasks.forEach((task) => {
+    getRepository(Task).merge(task, { userId: null });
+    getRepository(User).save(task);
+  });
 
   if (deletedRes.affected) return User.toResponse(deletedRes.raw)
   else throw new HttpError('There are no user with such id!', 404);

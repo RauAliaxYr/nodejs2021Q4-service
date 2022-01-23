@@ -24,25 +24,6 @@ export const AllTasks = async (): Promise<Task[]> => {
 
 /**
  * take board's ID and returns all tasks by board ID
- * @param id board's ID
- * @returns board by ID
- */
-export const getTasksById = async (id: string): Promise<Task[]> => {
-  const taskRepo = getRepository(Task);
-  let tasks: Task[] | undefined;
-  try {
-    tasks = await taskRepo
-      .createQueryBuilder('task')
-      .where('task.id.id = :id', { id: id })
-      .getMany();
-  } catch (e) {
-    throw new Error(`There are no tasks on board.`);
-  }
-  return tasks;
-};
-
-/**
- * take board's ID and returns all tasks by board ID
  * @param boardId board ID
  * @param id tasks ID
  * @returns task by board and task ID
@@ -50,7 +31,7 @@ export const getTasksById = async (id: string): Promise<Task[]> => {
 export const getTaskById = async (boardId: string, id: string): Promise<Task> => {
   const taskRepo = getRepository(Task);
   if (boardId === null){throw new Error(`There are no tasks with such id.`);}
-  const taskById = await taskRepo.findOne(id,{where: {boardId},loadRelationIds:true}).catch((e) => console.log(e));
+  const taskById = await taskRepo.findOne({ id: id }).catch((e) => console.log(e));
   if (typeof taskById === 'undefined') {
     throw new Error(`There are no tasks with such id.`);
   }
@@ -67,7 +48,7 @@ export const getTaskById = async (boardId: string, id: string): Promise<Task> =>
  */
 export const createTask = async (newTaskBody: ITask): Promise<Task> => {
   const taskRepo = getRepository(Task);
-
+console.log(newTaskBody)
   const insertedTask = taskRepo.create(newTaskBody);
   return await taskRepo.save(insertedTask);
 
