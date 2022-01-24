@@ -1,11 +1,6 @@
-import { Board, IBoard, IColumn } from '../../entities/board.model';
+import { Board, IBoard } from '../../entities/board.model';
 import { HttpError } from '../../errors';
 import { getRepository } from 'typeorm';
-
-type tryBody = {
-  title: string,
-  columns: IColumn[],
-}
 
 
 /**

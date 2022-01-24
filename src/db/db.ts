@@ -5,9 +5,7 @@ export const connectToDB = async (
   runApp: () =>void):Promise<void> => {
   try {
 
-    await createConnection(config).catch((e)=>{
-      console.log(e)}
-    )
+    await createConnection(config)
     runApp()
     process.stdout.write('Successful connection to database\n');
   }

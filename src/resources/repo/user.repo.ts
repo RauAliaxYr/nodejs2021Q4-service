@@ -106,17 +106,22 @@ export const updateUser = async (id: string, body: tryBody): Promise<UserToResp>
  * @returns deleted user
  */
 
-export const deleteUser = async (id: string): Promise<UserToResp> => {
+export const deleteUser = async (id: string): Promise<void> => {
   const userRepository = getRepository(User);
   const deletedRes = await userRepository.delete(id);
-  const tasks = await getRepository(Task).find({ userId: id });
-  tasks.forEach((task) => {
-    getRepository(Task).merge(task, { userId: null });
-    getRepository(User).save(task);
-  });
+  if (deletedRes && deletedRes.affected && deletedRes.affected > 0) {
+    const tasksDeleteUser = await getRepository(Task).find(
+      {
+        where: {userId: id}
+      });
+    for (let i = 0; i < tasksDeleteUser.length; i+=1) {
+      const userRepository = await getRepository(Task)
+      await userRepository.update(tasksDeleteUser[i].id, {userId: null})
+    }
+  }
+  else {
+    throw new HttpError('There are no user with such id!', 404);}
 
-  if (deletedRes.affected) return User.toResponse(deletedRes.raw)
-  else throw new HttpError('There are no user with such id!', 404);
 };
 
 

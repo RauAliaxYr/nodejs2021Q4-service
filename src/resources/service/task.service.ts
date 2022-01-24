@@ -38,7 +38,7 @@ class TaskService {
 
       const { boardId, id } = req.params;
 
-      const task: Task|void = await getTaskById(boardId,id).catch(e => console.log(e));
+      const task: Task|void = await getTaskById(boardId,id);
 
       res.status(200)
       res.send(task);
@@ -58,8 +58,11 @@ class TaskService {
   static async createTask(req: Request, res: Response) {
 
     try {
-      const task: Task = await createTask(req.body);
+      const { boardId } = req.params
+      console.log("asdasd")
+      const task: Task = await createTask(req.body,boardId);
       res.status(201)
+
       res.send(task);
       CustomLogger.infoLog(req, 201);
       res.end();
