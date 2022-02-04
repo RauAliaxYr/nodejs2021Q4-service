@@ -21,13 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c5234f93-0cf5-4ad2-80df-4a10e5ac8ca9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logErrors.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logErrors.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/board.repo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/task.repo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/repo/user.repo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/service/task.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/service/task.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +51,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\node_modules\prettier" />
     <property name="ts.external.directory.path" value="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\node_modules\typescript\lib" />
@@ -75,7 +69,22 @@
       <recent name="C:\Allfor web\nodeJSRss\nodejs2021Q4-service\src\routs" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jest.Users suite.DELETE.should unassign user's tasks upon deletion">
+    <configuration name="Users suite.DELETE.should unassign user's tasks upon deletion" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/test/e2e/test/users.test.js" />
+      <test-names>
+        <test-name value="Users suite" />
+        <test-name value="DELETE" />
+        <test-name value="should unassign user's tasks upon deletion" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings>
@@ -91,6 +100,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Users suite.DELETE.should unassign user's tasks upon deletion" />
         <item itemvalue="Docker.docker-compose.yml.postgres: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -149,7 +159,8 @@
       <workItem from="1642934720507" duration="4387000" />
       <workItem from="1642947488963" duration="3981000" />
       <workItem from="1643023508760" duration="359000" />
-      <workItem from="1643024424335" duration="4342000" />
+      <workItem from="1643024424335" duration="5919000" />
+      <workItem from="1643107104753" duration="140000" />
     </task>
     <servers />
   </component>
@@ -185,6 +196,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="155" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1642779275541" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1643032495755">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1643032495755" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1643032495755">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1643032495755" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1643032495754">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1643032495754" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1643032495755">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1643032495755" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1638654594825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
